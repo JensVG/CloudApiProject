@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
+[Route("api/v1/Competitie")]
 public class SayHiController : Controller
 {
-    [Route("Competitie")]
     [HttpGet]
     public List<Ploegenstand> GetPloegenStanden()
     {
@@ -17,7 +17,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -27,7 +27,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -37,7 +37,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
 
         list.Add(new Ploegenstand()
@@ -48,7 +48,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -58,7 +58,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -68,7 +68,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -78,7 +78,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -88,7 +88,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -98,7 +98,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -108,7 +108,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -118,7 +118,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -128,7 +128,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -138,7 +138,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -148,7 +148,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -158,7 +158,7 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         list.Add(new Ploegenstand()
         {
@@ -168,8 +168,30 @@ public class SayHiController : Controller
             Gewonnen = 0,
             Verloren = 0,
             Gelijkspel = 0,
-            Punten = 0,
+            Punten = 0
         });
         return list;
+    }
+    [Route("{stamnummer}")]
+    [HttpGet]
+    public ActionResult<Ploegenstand> GetPloegstand(int stamnummer)
+    {
+        if (stamnummer == 1)
+        {
+            var ploeg = new Ploegenstand()
+            {
+                Voetbalploeg = "Royal Antwerp FC",
+                Gemeente = "Antwerpen",
+                Stamnummer = 1,
+                Gewonnen = 0,
+                Verloren = 0,
+                Gelijkspel = 0,
+                Punten = 0
+            };
+            return ploeg;
+        }
+        else{
+            return NotFound();
+        }
     }
 }
