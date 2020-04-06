@@ -1,17 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
-[Route("api/v1/Competitie")]
+[Route("api/v1/ploegen")]
 public class SayHiController : Controller
 {
     [HttpGet]
-    public List<Ploegenstand> GetPloegenStanden()
+    public List<Ploeg> GetPloegenStanden()
     {
-        var list = new List<Ploegenstand>();
+        var list = new List<Ploeg>();
 
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "RSC Anderlecht",
+            PloegNaam = "RSC Anderlecht",
             Gemeente = "Anderlecht",
             Stamnummer = 35,
             Gewonnen = 0,
@@ -19,9 +20,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "Royal Antwerp FC",
+            PloegNaam = "Royal Antwerp FC",
             Gemeente = "Antwerpen",
             Stamnummer = 1,
             Gewonnen = 0,
@@ -29,9 +30,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "Cercle Brugge",
+            PloegNaam = "Cercle Brugge",
             Gemeente = "Brugge",
             Stamnummer = 12,
             Gewonnen = 0,
@@ -40,9 +41,9 @@ public class SayHiController : Controller
             Punten = 0
         });
 
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "Club Brugge",
+            PloegNaam = "Club Brugge",
             Gemeente = "Brugge",
             Stamnummer = 3,
             Gewonnen = 0,
@@ -50,9 +51,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "Royal Charleroi Sporting Club",
+            PloegNaam = "Royal Charleroi Sporting Club",
             Gemeente = "Charleroi",
             Stamnummer = 22,
             Gewonnen = 0,
@@ -60,9 +61,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "KAS Eupen",
+            PloegNaam = "KAS Eupen",
             Gemeente = "Eupen",
             Stamnummer = 4276,
             Gewonnen = 0,
@@ -70,9 +71,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "KRC Genk",
+            PloegNaam = "KRC Genk",
             Gemeente = "Genk",
             Stamnummer = 322,
             Gewonnen = 0,
@@ -80,9 +81,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "KAA Gent",
+            PloegNaam = "KAA Gent",
             Gemeente = "Gent",
             Stamnummer = 7,
             Gewonnen = 0,
@@ -90,9 +91,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "KV Kortrijk",
+            PloegNaam = "KV Kortrijk",
             Gemeente = "Kortrijk",
             Stamnummer = 19,
             Gewonnen = 0,
@@ -100,9 +101,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "KV Mechelen",
+            PloegNaam = "KV Mechelen",
             Gemeente = "Mechelen",
             Stamnummer = 25,
             Gewonnen = 0,
@@ -110,9 +111,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "Royal Excel Moeskroen",
+            PloegNaam = "Royal Excel Moeskroen",
             Gemeente = "Moeskroen",
             Stamnummer = 216,
             Gewonnen = 0,
@@ -120,9 +121,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "KV Oostende",
+            PloegNaam = "KV Oostende",
             Gemeente = "Oostende",
             Stamnummer = 31,
             Gewonnen = 0,
@@ -130,9 +131,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "Sint-Truidense VV",
+            PloegNaam = "Sint-Truidense VV",
             Gemeente = "Sint-Truiden",
             Stamnummer = 373,
             Gewonnen = 0,
@@ -140,9 +141,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "Standard Luik",
+            PloegNaam = "Standard Luik",
             Gemeente = "Luik",
             Stamnummer = 16,
             Gewonnen = 0,
@@ -150,9 +151,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "KVRS Waasland- SK Beveren",
+            PloegNaam = "KVRS Waasland- SK Beveren",
             Gemeente = "Beveren",
             Stamnummer = 4068,
             Gewonnen = 0,
@@ -160,9 +161,9 @@ public class SayHiController : Controller
             Gelijkspel = 0,
             Punten = 0
         });
-        list.Add(new Ploegenstand()
+        list.Add(new Ploeg()
         {
-            Voetbalploeg = "SV Zulte Waregem",
+            PloegNaam = "SV Zulte Waregem",
             Gemeente = "Waregem",
             Stamnummer = 5381,
             Gewonnen = 0,
@@ -174,13 +175,13 @@ public class SayHiController : Controller
     }
     [Route("{stamnummer}")]
     [HttpGet]
-    public ActionResult<Ploegenstand> GetPloegstand(int stamnummer)
+    public ActionResult<Ploeg> GetPloegstand(int stamnummer)
     {
         if (stamnummer == 1)
         {
-            var ploeg = new Ploegenstand()
+            var ploeg = new Ploeg()
             {
-                Voetbalploeg = "Royal Antwerp FC",
+                PloegNaam = "Royal Antwerp FC",
                 Gemeente = "Antwerpen",
                 Stamnummer = 1,
                 Gewonnen = 0,
