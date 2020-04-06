@@ -1,18 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jens\\Desktop\\Project\\api.csproj": {}
+    "C:\\Users\\Jens\\Desktop\\CloudAPI\\CloudApiProject\\Project\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jens\\Desktop\\Project\\api.csproj": {
+    "C:\\Users\\Jens\\Desktop\\CloudAPI\\CloudApiProject\\Project\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jens\\Desktop\\Project\\api.csproj",
+        "projectUniqueName": "C:\\Users\\Jens\\Desktop\\CloudAPI\\CloudApiProject\\Project\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\Jens\\Desktop\\Project\\api.csproj",
+        "projectPath": "C:\\Users\\Jens\\Desktop\\CloudAPI\\CloudApiProject\\Project\\api.csproj",
         "packagesPath": "C:\\Users\\Jens\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jens\\Desktop\\Project\\obj\\",
+        "outputPath": "C:\\Users\\Jens\\Desktop\\CloudAPI\\CloudApiProject\\Project\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Jens\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -55,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
