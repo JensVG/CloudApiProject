@@ -8114,11 +8114,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jens\\Desktop\\Project\\VoetbalAPI\\VoetbalAPI\\VoetbalAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Jens\\Desktop\\CloudAPI\\CloudApiProject\\Project\\VoetbalAPI\\VoetbalAPI.csproj",
       "projectName": "VoetbalAPI",
-      "projectPath": "C:\\Users\\Jens\\Desktop\\Project\\VoetbalAPI\\VoetbalAPI\\VoetbalAPI.csproj",
+      "projectPath": "C:\\Users\\Jens\\Desktop\\CloudAPI\\CloudApiProject\\Project\\VoetbalAPI\\VoetbalAPI.csproj",
       "packagesPath": "C:\\Users\\Jens\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jens\\Desktop\\Project\\VoetbalAPI\\VoetbalAPI\\obj\\",
+      "outputPath": "C:\\Users\\Jens\\Desktop\\CloudAPI\\CloudApiProject\\Project\\VoetbalAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

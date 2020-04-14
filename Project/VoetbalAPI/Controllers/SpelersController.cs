@@ -17,10 +17,29 @@ namespace VoetbalAPI.Controllers
         {
             this.context = context;
         }
+
         [HttpGet]
         public List<Speler> GetAllSpelers()
         {
             return context.Spelers.ToList();
+        }
+
+        [HttpPost]
+        public IActionResult CreateSpeler([FromBody] Speler newSpeler)
+        {
+            context.Spelers.Add(newSpeler);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpPut]
+        public void UpdateSpeler()
+        {
+
+        }
+        [HttpDelete]
+        public void DeleteSpeler()
+        {
+
         }
     }
 }

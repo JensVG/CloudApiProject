@@ -24,16 +24,33 @@ namespace VoetbalAPI.Controllers
             return context.Ploegen.ToList();
         }
 
-        [Route("{stamnummer}")]
+        [Route("{Id}")]
         [HttpGet]
-        public IActionResult GetPloeg(int stamnummer)
+        public IActionResult GetPloeg(int Id)
         {
-            var ploeg = context.Ploegen.Find(stamnummer);
+            var ploeg = context.Ploegen.Find(Id);
             if (ploeg == null)
             {
                 return NotFound();
             }
             return Ok(ploeg);
+        }
+        [HttpPost]
+        public IActionResult CreatePloeg([FromBody] Ploeg newPloeg)
+        {
+            context.Ploegen.Add(newPloeg);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpPut]
+        public void UpdatePloeg()
+        {
+
+        }
+        [HttpDelete]
+        public void DeletePloeg()
+        {
+
         }
     }
 }
