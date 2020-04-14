@@ -29,7 +29,7 @@ namespace VoetbalAPI.Controllers
         {
             context.Spelers.Add(newSpeler);
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return Created("", newSpeler);
         }
         [HttpPut]
         public void UpdateSpeler()

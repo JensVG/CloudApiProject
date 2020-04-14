@@ -40,7 +40,7 @@ namespace VoetbalAPI.Controllers
         {
             context.Ploegen.Add(newPloeg);
             context.SaveChanges();
-            return RedirectToAction("Index");
+            return Created("",newPloeg);
         }
         [HttpPut]
         public void UpdatePloeg()
