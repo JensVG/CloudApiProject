@@ -43,14 +43,38 @@ namespace VoetbalAPI.Controllers
             return Created("",newPloeg);
         }
         [HttpPut]
-        public void UpdatePloeg()
+        public IActionResult UpdatePloeg([FromBody] Ploeg updatePloeg)
         {
+            var orgPloeg = context.Ploegen.Find(updatePloeg.Id);
+            if(orgPloeg == null)
+            {
+                return NotFound();
+            }
+            orgPloeg.Punten = updatePloeg.Punten;
+            orgPloeg.PloegNaam = updatePloeg.PloegNaam;
+            orgPloeg.Gemeente = updatePloeg.Gemeente;
+            orgPloeg.Website = updatePloeg.Website;
+            orgPloeg.Email = updatePloeg.Email;
+            orgPloeg.Stamnummer = updatePloeg.Stamnummer;
+            orgPloeg.Gewonnen = updatePloeg.Gewonnen;
+            orgPloeg.Verloren = updatePloeg.Verloren;
+            orgPloeg.Gelijkspel = updatePloeg.Gelijkspel;
+            orgPloeg.Punten = updatePloeg.Punten;
 
-        }
+            context.SaveChanges();
+            return Ok(orgPloeg);
+    }
         [HttpDelete]
-        public void DeletePloeg()
+        public IActionResult DeletePloeg(int id)
         {
-
+            var ploeg = context.Ploegen.Find(id);
+            if (ploeg == null)
+            {
+                return NotFound();
+            }
+            context.Ploegen.Remove(ploeg);
+            context.SaveChanges();
+            return NoContent();
         }
     }
 }

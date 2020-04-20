@@ -17,8 +17,10 @@ namespace VoetbalAPI
         [Required]
         public string Achternaam { get; set; }
         [Required]
-        public string Woontplaats { get; set; }
+        public string Woonplaats { get; set; }
+        [Required]
         public string Positie { get; set; }
+        [Range(1,99)]
         public int Rugnummer { get; set; }
         public int GeleKaarten { get; set; }
         public int RodeKaarten { get; set; }
