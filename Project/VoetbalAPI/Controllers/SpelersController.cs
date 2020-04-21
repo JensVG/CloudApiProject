@@ -39,10 +39,10 @@ namespace VoetbalAPI.Controllers
             {
                 return NotFound();
             }
-            orgSpeler.PloegNaam = updateSpeler.PloegNaam;
             orgSpeler.Voornaam = updateSpeler.Voornaam;
             orgSpeler.Achternaam = updateSpeler.Achternaam;
             orgSpeler.Woonplaats = updateSpeler.Woonplaats;
+            orgSpeler.Email = updateSpeler.Email;
             orgSpeler.Positie = updateSpeler.Positie;
             orgSpeler.Rugnummer = updateSpeler.Rugnummer;
             orgSpeler.GeleKaarten = updateSpeler.GeleKaarten;

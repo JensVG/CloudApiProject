@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 
@@ -26,9 +27,12 @@ namespace VoetbalAPI.Controllers
 
         [Route("{Id}")]
         [HttpGet]
-        public IActionResult GetPloeg(int Id)
+        public IActionResult GetPloeg(int id)
         {
-            var ploeg = context.Ploegen.Find(Id);
+            var ploeg = context.Ploegen
+                .Include(d => d.Spelers)
+                .SingleOrDefault(d => d.Id == id);
+
             if (ploeg == null)
             {
                 return NotFound();
@@ -54,7 +58,6 @@ namespace VoetbalAPI.Controllers
             orgPloeg.PloegNaam = updatePloeg.PloegNaam;
             orgPloeg.Gemeente = updatePloeg.Gemeente;
             orgPloeg.Website = updatePloeg.Website;
-            orgPloeg.Email = updatePloeg.Email;
             orgPloeg.Stamnummer = updatePloeg.Stamnummer;
             orgPloeg.Gewonnen = updatePloeg.Gewonnen;
             orgPloeg.Verloren = updatePloeg.Verloren;
