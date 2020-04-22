@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace VoetbalAPI.Controllers
@@ -22,6 +23,21 @@ namespace VoetbalAPI.Controllers
         public List<Speler> GetAllSpelers()
         {
             return context.Spelers.ToList();
+        }
+
+        [Route("{id}")]
+        [HttpGet]
+        public IActionResult GetSpeler(int id)
+        {
+            var speler = context.Spelers
+               .Include(d => d.Ploeg)
+               .SingleOrDefault(d => d.Id == id);
+
+            if (speler == null)
+            {
+                return NotFound();
+            }
+            return Ok(speler);
         }
 
         [HttpPost]

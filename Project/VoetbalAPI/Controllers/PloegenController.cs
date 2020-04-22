@@ -29,9 +29,7 @@ namespace VoetbalAPI.Controllers
         [HttpGet]
         public IActionResult GetPloeg(int id)
         {
-            var ploeg = context.Ploegen
-                .Include(d => d.Spelers)
-                .SingleOrDefault(d => d.Id == id);
+            var ploeg = context.Ploegen.Find(id);
 
             if (ploeg == null)
             {
