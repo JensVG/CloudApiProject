@@ -20,7 +20,7 @@ namespace VoetbalAPI.Controllers
             this.context = context;
         }
         [HttpGet]
-        public List<Ploeg> GetPloegen()
+        public List<Model.Ploeg> GetPloegen()
         {
             return context.Ploegen.ToList();
         }
@@ -38,14 +38,14 @@ namespace VoetbalAPI.Controllers
             return Ok(ploeg);
         }
         [HttpPost]
-        public IActionResult CreatePloeg([FromBody] Ploeg newPloeg)
+        public IActionResult CreatePloeg([FromBody] Model.Ploeg newPloeg)
         {
             context.Ploegen.Add(newPloeg);
             context.SaveChanges();
             return Created("",newPloeg);
         }
         [HttpPut]
-        public IActionResult UpdatePloeg([FromBody] Ploeg updatePloeg)
+        public IActionResult UpdatePloeg([FromBody] Model.Ploeg updatePloeg)
         {
             var orgPloeg = context.Ploegen.Find(updatePloeg.Id);
             if(orgPloeg == null)
@@ -65,6 +65,7 @@ namespace VoetbalAPI.Controllers
             context.SaveChanges();
             return Ok(orgPloeg);
     }
+        [Route("{id}")]
         [HttpDelete]
         public IActionResult DeletePloeg(int id)
         {

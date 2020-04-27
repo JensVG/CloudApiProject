@@ -47,9 +47,6 @@ namespace VoetbalAPI
                 app.UseHsts();
             }
 
-
-            DBInitializer.Initialize(competitieContext);
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -60,6 +57,8 @@ namespace VoetbalAPI
             {
                 endpoints.MapControllers();
             });
+
+            DBInitializer.Initialize(competitieContext);
         }
     }
 }

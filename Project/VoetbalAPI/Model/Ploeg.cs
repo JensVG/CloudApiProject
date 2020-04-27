@@ -5,10 +5,16 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace VoetbalAPI
+namespace VoetbalAPI.Model
 {
     public class Ploeg
     {
+        /*
+        public Ploeg()
+        {
+            this.Bekers = new HashSet<Beker>();
+        }
+        */
         public int Id { get; set; }
         [Required]
         public string PloegNaam { get; set; }
@@ -24,5 +30,6 @@ namespace VoetbalAPI
         public int Punten { get; set; }
         [JsonIgnore]
         public ICollection<Speler> Spelers { get; set; }
+        // public virtual ICollection<Beker> Bekers { get; set; }
     }
 }

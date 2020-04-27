@@ -20,9 +20,28 @@ namespace VoetbalAPI.Controllers
         }
 
         [HttpGet]
-        public List<Speler> GetAllSpelers()
+        public List<Model.Speler> GetAllSpelers(string sort, int? page, int length, string dir ="asc")
         {
-            return context.Spelers.ToList();
+            IQueryable<Model.Speler> query = context.Spelers;
+/*
+            if (!string.IsNullOrWhiteSpace(sort))
+            {
+                switch (sort)
+                {
+                    case "voornaam":
+                        if (dir == "asc")
+                            query = query.OrderBy(d => d.Voornaam);
+                        else if (dir == "desc")
+                            query = query.OrderByDescending(d => d.Voornaam);
+                        break;
+                }
+            }
+
+            if (page.HasValue)
+                query = query.Skip(page.Value * length);
+            query = query.Take(length);
+*/
+            return query.ToList();
         }
 
         [Route("{id}")]
@@ -41,14 +60,15 @@ namespace VoetbalAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateSpeler([FromBody] Speler newSpeler)
+        public IActionResult CreateSpeler([FromBody] Model.Speler newSpeler)
         {
             context.Spelers.Add(newSpeler);
             context.SaveChanges();
             return Created("", newSpeler);
         }
+
         [HttpPut]
-        public IActionResult UpdateSpeler([FromBody] Speler updateSpeler)
+        public IActionResult UpdateSpeler([FromBody] Model.Speler updateSpeler)
         {
             var orgSpeler = context.Spelers.Find(updateSpeler.Id);
             if (orgSpeler == null)
@@ -69,6 +89,7 @@ namespace VoetbalAPI.Controllers
         context.SaveChanges();
             return Ok(orgSpeler);
         }
+        [Route("{id}")]
         [HttpDelete]
         public IActionResult DeleteSpeler(int id)
         {

@@ -12,7 +12,22 @@ namespace VoetbalAPI
         {
 
         }
-        public DbSet<Ploeg> Ploegen { get; set; }
-        public DbSet<Speler> Spelers { get; set; }
+        public DbSet<Model.Ploeg> Ploegen { get; set; }
+        public DbSet<Model.Speler> Spelers { get; set; }
+        public DbSet<Model.Beker> Bekers { get; set; }
+/*
+        protected override void OnModelCreating()
+        {
+            modelBuilder.Entity<Ploeg>()
+                .HasMany<Beker>(s => s.Bekers)
+                .WithMany(c => c.Ploegen)
+                .Map(cs =>
+                {
+                    cs.MapLeftKey("PloegId");
+                    cs.MapRightKey("StudentId");
+                    cs.ToTable("PloegBeker");
+                });
+        }
+*/
     }
 }

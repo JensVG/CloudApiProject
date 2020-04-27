@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace VoetbalAPI
+namespace VoetbalAPI.Model
 {
     public class Speler
     {

@@ -233,7 +233,6 @@ C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\bin\Debug\netc
 C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netcoreapp3.1\VoetbalAPI.csprojAssemblyReference.cache
-C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netcoreapp3.1\VoetbalAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netcoreapp3.1\VoetbalAPI.AssemblyInfoInputs.cache
 C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netcoreapp3.1\VoetbalAPI.AssemblyInfo.cs
 C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netcoreapp3.1\VoetbalAPI.RazorTargetAssemblyInfo.cache
@@ -242,3 +241,4 @@ C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netc
 C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netcoreapp3.1\staticwebassets\VoetbalAPI.StaticWebAssets.xml
 C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netcoreapp3.1\VoetbalAPI.dll
 C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netcoreapp3.1\VoetbalAPI.pdb
+C:\Users\Jens\Desktop\CloudAPI\CloudApiProject\Project\VoetbalAPI\obj\Debug\netcoreapp3.1\VoetbalAPI.MvcApplicationPartsAssemblyInfo.cache
