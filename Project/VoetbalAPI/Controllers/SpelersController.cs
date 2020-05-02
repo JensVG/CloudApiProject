@@ -20,10 +20,15 @@ namespace VoetbalAPI.Controllers
         }
 
         [HttpGet]
-        public List<Model.Speler> GetAllSpelers(string sort, int? page, int length, string dir ="asc")
+        public List<Model.Speler> GetAllSpelers(string sort, string search, int? page, int length = 2, string dir = "asc")
         {
             IQueryable<Model.Speler> query = context.Spelers;
-/*
+            var spelers = from d in context.Spelers select d;
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                query = query.Where(d => d.Voornaam.Contains(search));
+            }
+
             if (!string.IsNullOrWhiteSpace(sort))
             {
                 switch (sort)
@@ -34,13 +39,25 @@ namespace VoetbalAPI.Controllers
                         else if (dir == "desc")
                             query = query.OrderByDescending(d => d.Voornaam);
                         break;
+                    case "achternaam":
+                        if (dir == "asc")
+                            query = query.OrderBy(d => d.Achternaam);
+                        else if (dir == "desc")
+                            query = query.OrderByDescending(d => d.Achternaam);
+                        break;
+                    case "woontplaats":
+                        if (dir == "asc")
+                            query = query.OrderBy(d => d.Woonplaats);
+                        else if (dir == "desc")
+                            query = query.OrderByDescending(d => d.Woonplaats);
+                        break;
                 }
             }
 
             if (page.HasValue)
                 query = query.Skip(page.Value * length);
             query = query.Take(length);
-*/
+
             return query.ToList();
         }
 
@@ -86,7 +103,7 @@ namespace VoetbalAPI.Controllers
             orgSpeler.AantalGoalen = updateSpeler.AantalGoalen;
             orgSpeler.AantalAssisten = updateSpeler.AantalAssisten;
 
-        context.SaveChanges();
+            context.SaveChanges();
             return Ok(orgSpeler);
         }
         [Route("{id}")]

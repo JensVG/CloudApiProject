@@ -9,13 +9,6 @@ namespace VoetbalAPI.Model
 {
     public class Beker
     {
- 
-        /*
-         public Beker()
-        {
-            this.Ploegen = new HashSet<Ploeg>();
-        }
-        */
         public int Id { get; set; }
         [Required]
         public int KampioenVanBelgië { get; set; }
@@ -27,6 +20,6 @@ namespace VoetbalAPI.Model
         public int ChampionsLeagueBeker { get; set; }
         [Required]
         public int EuropaLeagueBeker { get; set; }
-       // public virtual ICollection<Ploeg> Ploegen { get; set; }
+        public ICollection<BekerPloeg> BekerPloegen { get; set; }
     }
 }
