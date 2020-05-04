@@ -19,6 +19,7 @@ namespace VoetbalAPI.Controllers
         {
             this.context = context;
         }
+
         [HttpGet]
         public List<Model.Ploeg> GetPloegen()
         {
@@ -37,6 +38,7 @@ namespace VoetbalAPI.Controllers
             }
             return Ok(ploeg);
         }
+
         [HttpPost]
         public IActionResult CreatePloeg([FromBody] Model.Ploeg newPloeg)
         {
@@ -44,6 +46,7 @@ namespace VoetbalAPI.Controllers
             context.SaveChanges();
             return Created("",newPloeg);
         }
+
         [HttpPut]
         public IActionResult UpdatePloeg([FromBody] Model.Ploeg updatePloeg)
         {
@@ -65,6 +68,7 @@ namespace VoetbalAPI.Controllers
             context.SaveChanges();
             return Ok(orgPloeg);
     }
+
         [Route("{id}")]
         [HttpDelete]
         public IActionResult DeletePloeg(int id)

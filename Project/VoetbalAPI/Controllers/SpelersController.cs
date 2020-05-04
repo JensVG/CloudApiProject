@@ -23,12 +23,14 @@ namespace VoetbalAPI.Controllers
         public List<Model.Speler> GetAllSpelers(string sort, string search, int? page, int length = 2, string dir = "asc")
         {
             IQueryable<Model.Speler> query = context.Spelers;
-            var spelers = from d in context.Spelers select d;
+
+            //Searching
             if (!string.IsNullOrWhiteSpace(search))
             {
                 query = query.Where(d => d.Voornaam.Contains(search));
             }
 
+            //Sorting
             if (!string.IsNullOrWhiteSpace(sort))
             {
                 switch (sort)
@@ -54,6 +56,7 @@ namespace VoetbalAPI.Controllers
                 }
             }
 
+            //Paging
             if (page.HasValue)
                 query = query.Skip(page.Value * length);
             query = query.Take(length);
@@ -106,6 +109,7 @@ namespace VoetbalAPI.Controllers
             context.SaveChanges();
             return Ok(orgSpeler);
         }
+
         [Route("{id}")]
         [HttpDelete]
         public IActionResult DeleteSpeler(int id)

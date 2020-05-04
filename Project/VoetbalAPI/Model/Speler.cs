@@ -21,6 +21,7 @@ namespace VoetbalAPI.Model
         public string Email { get; set; }
         [Required]
         public string Positie { get; set; }
+        [Required]
         [Range(1,99)]
         public int Rugnummer { get; set; }
         public int GeleKaarten { get; set; }

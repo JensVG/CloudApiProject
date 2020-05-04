@@ -9,6 +9,7 @@ namespace VoetbalAPI
     {
         public static void Initialize(CompetitieContext context)
         {
+           //Ploegen
             Model.Ploeg RSCAnderlecht = new Model.Ploeg() { PloegNaam = "RSC Anderlecht", Gemeente = "Anderlecht",Website = "https://www.rsca.be/nl", Stamnummer = 35, Gewonnen = 0, Verloren = 0, Gelijkspel = 0, Punten = 0 };
             Model.Ploeg RoyalAntwerpFC = new Model.Ploeg() { PloegNaam = "Royal Antwerp FC", Gemeente = "Antwerpen", Website = "https://royalantwerpfc.be/", Stamnummer = 1, Gewonnen = 0, Verloren = 0, Gelijkspel = 0, Punten = 0 };
             Model.Ploeg CercleBrugge = new Model.Ploeg() {PloegNaam = "Cercle Brugge", Gemeente = "Brugge", Website = "https://www.cerclebrugge.be/nl/", Stamnummer = 12,Gewonnen = 0,Verloren = 0,Gelijkspel = 0,Punten = 0 };
@@ -26,14 +27,32 @@ namespace VoetbalAPI
             Model.Ploeg KVRSWaaslandSKBeveren = new Model.Ploeg() { PloegNaam = "KVRS Waasland - SK Beveren", Website = "https://www.waasland-beveren.be/", Gemeente = "Beveren", Stamnummer = 4068, Gewonnen = 0, Verloren = 0, Gelijkspel = 0, Punten = 0 };
             Model.Ploeg SVZulteWaregem = new Model.Ploeg() { PloegNaam = "SV Zulte Waregem", Gemeente = "Waregem", Website = "https://www.essevee.be/nl", Stamnummer = 5381, Gewonnen = 0, Verloren = 0, Gelijkspel = 0, Punten = 0 };
 
-
+            //Spelers
             Model.Speler SinanBolat = new Model.Speler() {  Voornaam = "Sinan", Achternaam = "Bolat", Woonplaats = "Merksem", Email = "SinanBolat@gmail.com", Positie = "keeper", Rugnummer = 1, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
             Model.Speler DieumerciMbokani  = new Model.Speler() {  Voornaam = "Dieumerci", Achternaam = "Mbokani", Woonplaats = "Merksem", Email = "DieumerciMbokani@gmail.com", Positie = "Aanvaller", Rugnummer = 70, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
             Model.Speler HansVanaken = new Model.Speler() {  Voornaam = "Hans", Achternaam = "Vanaken", Woonplaats = "Brugge", Email = "HansVanaken@gmail.com", Positie = "Middenvelder", Rugnummer = 20, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
             Model.Speler AleksandarVukotic = new Model.Speler() {  Voornaam = "Aleksandar", Achternaam = "Vukotic", Woonplaats = "Antwerpen", Email = "AleksandarVukotic@gmail.com", Positie = "Verdediger", Rugnummer = 26, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
-
-
+            Model.Speler MichelVlap = new Model.Speler() { Voornaam = "Michel", Achternaam = "Vlap", Woonplaats = "Brussel", Email = "MichelVlap@gmail.com", Positie = "Middenvelder", Rugnummer = 10, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
+            Model.Speler RyotaMorioka = new Model.Speler() { Voornaam = "Ryota", Achternaam = "Morioka", Woonplaats = "Charleroi", Email = "RyotaMorioka@gmail.com", Positie = "Middenvelder", Rugnummer = 44, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
+            Model.Speler YukiKobayashi = new Model.Speler() { Voornaam = "Yuki", Achternaam = "Kobayashi", Woonplaats = "Antwerpen", Email = "YukiKobayashi@gmail.com", Positie = "Middenvelder", Rugnummer = 10, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
+            //Bekers
             Model.Beker BekersVanRSCAnderlecht = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanRoyalAntwerpFC = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanCercleBrugge = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanClubBrugge = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanRoyalCharleroiSportingClub = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanKASEupen = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanKRCGenk = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanKAAGent = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanKVKortrijk = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanKVMechelen = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanRoyalExcelMoeskroen = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanKVOostende = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanSintTruidenseVV = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanStandardLuik = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanKVRSWaaslandSKBeveren = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Model.Beker BekersVanSVZulteWaregem = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+
             context.Database.EnsureCreated();
 
             if (!context.Ploegen.Any())
@@ -63,12 +82,30 @@ namespace VoetbalAPI
                 context.Spelers.Add(DieumerciMbokani);
                 context.Spelers.Add(HansVanaken);
                 context.Spelers.Add(AleksandarVukotic);
+                context.Spelers.Add(MichelVlap);
+                context.Spelers.Add(RyotaMorioka);
+                context.Spelers.Add(YukiKobayashi);
                 context.SaveChanges();
             }
 
             if (!context.Bekers.Any())
             {
                 context.Bekers.Add(BekersVanRSCAnderlecht);
+                context.Bekers.Add(BekersVanRoyalAntwerpFC);
+                context.Bekers.Add(BekersVanCercleBrugge);
+                context.Bekers.Add(BekersVanClubBrugge);
+                context.Bekers.Add(BekersVanRoyalCharleroiSportingClub);
+                context.Bekers.Add(BekersVanKASEupen);
+                context.Bekers.Add(BekersVanKRCGenk);
+                context.Bekers.Add(BekersVanKAAGent);
+                context.Bekers.Add(BekersVanKVKortrijk);
+                context.Bekers.Add(BekersVanKVMechelen);
+                context.Bekers.Add(BekersVanRoyalExcelMoeskroen);
+                context.Bekers.Add(BekersVanKVOostende);
+                context.Bekers.Add(BekersVanSintTruidenseVV);
+                context.Bekers.Add(BekersVanStandardLuik);
+                context.Bekers.Add(BekersVanKVRSWaaslandSKBeveren);
+                context.Bekers.Add(BekersVanSVZulteWaregem);
                 context.SaveChanges();
             }
         }

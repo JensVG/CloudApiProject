@@ -17,6 +17,7 @@ namespace VoetbalAPI.Model
         [Url]
         [Required]
         public string Website { get; set; }
+        [Required]
         public int Stamnummer { get; set; }
         public int Gewonnen { get; set; }
         public int Verloren { get; set; }
@@ -24,6 +25,6 @@ namespace VoetbalAPI.Model
         public int Punten { get; set; }
         [JsonIgnore]
         public ICollection<Speler> Spelers { get; set; }
-        public virtual ICollection<BekerPloeg> BekerPloegen { get; set; }
+        public ICollection<BekerPloeg> BekerPloegen { get; set; }
     }
 }
