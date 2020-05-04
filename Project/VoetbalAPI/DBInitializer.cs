@@ -35,6 +35,7 @@ namespace VoetbalAPI
             Model.Speler MichelVlap = new Model.Speler() { Voornaam = "Michel", Achternaam = "Vlap", Woonplaats = "Brussel", Email = "MichelVlap@gmail.com", Positie = "Middenvelder", Rugnummer = 10, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
             Model.Speler RyotaMorioka = new Model.Speler() { Voornaam = "Ryota", Achternaam = "Morioka", Woonplaats = "Charleroi", Email = "RyotaMorioka@gmail.com", Positie = "Middenvelder", Rugnummer = 44, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
             Model.Speler YukiKobayashi = new Model.Speler() { Voornaam = "Yuki", Achternaam = "Kobayashi", Woonplaats = "Antwerpen", Email = "YukiKobayashi@gmail.com", Positie = "Middenvelder", Rugnummer = 10, GeleKaarten = 0, RodeKaarten = 0, AantalGoalen = 0, AantalAssisten = 0 };
+            
             //Bekers
             Model.Beker BekersVanRSCAnderlecht = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
             Model.Beker BekersVanRoyalAntwerpFC = new Model.Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };

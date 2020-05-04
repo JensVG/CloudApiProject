@@ -25,6 +25,6 @@ namespace VoetbalAPI.Model
         public int Punten { get; set; }
         [JsonIgnore]
         public ICollection<Speler> Spelers { get; set; }
-        public ICollection<BekerPloeg> BekerPloegen { get; set; }
+        public ICollection<BekerPloeg> BekersPloeg { get; set; }
     }
 }

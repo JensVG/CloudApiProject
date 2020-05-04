@@ -20,6 +20,6 @@ namespace VoetbalAPI.Model
         public int ChampionsLeagueBeker { get; set; }
         [Required]
         public int EuropaLeagueBeker { get; set; }
-        public ICollection<BekerPloeg> BekerPloegen { get; set; }
+        public ICollection<BekerPloeg> BekersPloeg { get; set; }
     }
 }

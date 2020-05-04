@@ -22,7 +22,9 @@ namespace VoetbalAPI.Controllers
         [HttpGet]
         public List<Model.Speler> GetAllSpelers(string sort, string search, int? page, int length = 2, string dir = "asc")
         {
-            IQueryable<Model.Speler> query = context.Spelers;
+            var spelers = context.Spelers
+                        .Include(d => d.Ploeg);
+            IQueryable<Model.Speler> query = spelers;
 
             //Searching
             if (!string.IsNullOrWhiteSpace(search))
@@ -53,6 +55,12 @@ namespace VoetbalAPI.Controllers
                         else if (dir == "desc")
                             query = query.OrderByDescending(d => d.Woonplaats);
                         break;
+                    case "rugnummer":
+                        if (dir == "asc")
+                            query = query.OrderBy(d => d.Rugnummer);
+                        else if (dir == "desc")
+                            query = query.OrderByDescending(d => d.Rugnummer);
+                        break;
                 }
             }
 
@@ -76,6 +84,7 @@ namespace VoetbalAPI.Controllers
             {
                 return NotFound();
             }
+
             return Ok(speler);
         }
 
