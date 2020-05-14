@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using VoetbalAPI.Model;
 
 namespace VoetbalAPI.Controllers
 {
@@ -20,11 +21,12 @@ namespace VoetbalAPI.Controllers
         }
 
         [HttpGet]
-        public List<Model.Speler> GetAllSpelers(string sort, string search, int? page, int length = 2, string dir = "asc")
+        public List<Speler> GetAllSpelers(string sort, string search, int? page, int length = 2, string dir = "asc")
         {
             var spelers = context.Spelers
                         .Include(d => d.Ploeg);
-            IQueryable<Model.Speler> query = spelers;
+
+            IQueryable<Speler> query = spelers;
 
             //Searching
             if (!string.IsNullOrWhiteSpace(search))
@@ -89,7 +91,7 @@ namespace VoetbalAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateSpeler([FromBody] Model.Speler newSpeler)
+        public IActionResult CreateSpeler([FromBody] Speler newSpeler)
         {
             context.Spelers.Add(newSpeler);
             context.SaveChanges();
@@ -97,7 +99,7 @@ namespace VoetbalAPI.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateSpeler([FromBody] Model.Speler updateSpeler)
+        public IActionResult UpdateSpeler([FromBody] Speler updateSpeler)
         {
             var orgSpeler = context.Spelers.Find(updateSpeler.Id);
             if (orgSpeler == null)

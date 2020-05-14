@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-
+using VoetbalAPI.Model;
 
 namespace VoetbalAPI.Controllers
 {
@@ -21,16 +21,22 @@ namespace VoetbalAPI.Controllers
         }
 
         [HttpGet]
-        public List<Model.Ploeg> GetPloegen()
+        public List<Ploeg> GetPloegen()
         {
-            return context.Ploegen.ToList();
+            var ploegen = context.Ploegen
+                        .Include(d => d.BekersPloeg);
+            IQueryable<Ploeg> query = ploegen;
+
+            return query.ToList();
         }
 
         [Route("{Id}")]
         [HttpGet]
         public IActionResult GetPloeg(int id)
         {
-            var ploeg = context.Ploegen.Find(id);
+            var ploeg = context.Ploegen
+                .Include(d => d.BekersPloeg)
+                .SingleOrDefault(d => d.Id == id);
 
             if (ploeg == null)
             {
@@ -40,18 +46,18 @@ namespace VoetbalAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreatePloeg([FromBody] Model.Ploeg newPloeg)
+        public IActionResult CreatePloeg([FromBody] Ploeg newPloeg)
         {
             context.Ploegen.Add(newPloeg);
             context.SaveChanges();
-            return Created("",newPloeg);
+            return Created("", newPloeg);
         }
 
         [HttpPut]
-        public IActionResult UpdatePloeg([FromBody] Model.Ploeg updatePloeg)
+        public IActionResult UpdatePloeg([FromBody] Ploeg updatePloeg)
         {
             var orgPloeg = context.Ploegen.Find(updatePloeg.Id);
-            if(orgPloeg == null)
+            if (orgPloeg == null)
             {
                 return NotFound();
             }
@@ -67,7 +73,7 @@ namespace VoetbalAPI.Controllers
 
             context.SaveChanges();
             return Ok(orgPloeg);
-    }
+        }
 
         [Route("{id}")]
         [HttpDelete]
