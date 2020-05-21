@@ -19,9 +19,13 @@ namespace VoetbalAPI.Model
         public string Website { get; set; }
         [Required]
         public int Stamnummer { get; set; }
+        [Required]
         public int Gewonnen { get; set; }
+        [Required]
         public int Verloren { get; set; }
+        [Required]
         public int Gelijkspel { get; set; }
+        [Required]
         public int Punten { get; set; }
         [JsonIgnore]
         public ICollection<Speler> Spelers { get; set; }

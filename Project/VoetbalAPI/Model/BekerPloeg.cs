@@ -7,16 +7,13 @@ using System.Text.Json.Serialization;
 
 namespace VoetbalAPI.Model
 {
-   // [DataContract]
     public class BekerPloeg
     {
         public int BekerId { get; set; }
         [JsonIgnore]
-        //[DataMember]
         public Beker Beker { get; set; }
         public int PloegId { get; set; }
         [JsonIgnore]
-       // [DataMember]
         public Ploeg Ploeg { get; set; }
     }
 }

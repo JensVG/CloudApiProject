@@ -10,7 +10,7 @@ using VoetbalAPI.Model;
 
 namespace VoetbalAPI.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [Route("api/v1/spelers")]
     [ApiController]
     public class SpelersController : ControllerBase

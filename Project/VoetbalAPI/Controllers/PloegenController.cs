@@ -10,7 +10,7 @@ using VoetbalAPI.Model;
 
 namespace VoetbalAPI.Controllers
 {
-    [Authorize]
+   // [Authorize]
     [Route("api/v1/ploegen")]
     [ApiController]
     public class PloegenController : ControllerBase

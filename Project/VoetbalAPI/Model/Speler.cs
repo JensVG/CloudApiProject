@@ -24,9 +24,13 @@ namespace VoetbalAPI.Model
         [Required]
         [Range(1,99)]
         public int Rugnummer { get; set; }
+        [Required]
         public int GeleKaarten { get; set; }
+        [Required]
         public int RodeKaarten { get; set; }
+        [Required]
         public int AantalGoalen { get; set; }
+        [Required]
         public int AantalAssisten { get; set; }
         public Ploeg Ploeg { get; set; }
     }
