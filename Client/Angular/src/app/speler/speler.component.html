@@ -1,20 +1,35 @@
 <div class ="SpelersPage">
-<div class="Info">
+<div class="InfoSpelers">
   <strong>Lijst van alle spelers</strong>
   <table>
-  <div *NgFor="let info of SpelersInfo">
-    <p>ID: {{info.id}}</p>
-    <p>Naam: {{info.voornaam}}</p>
-    <p>Woonplaats: {{info.woonplaats}}</p>
-    <p>Email: {{info.email}}</p>
-    <p>Positie: {{info.positie}}</p>
-    <p>Rugnummer: {{info.rugnummer}}</p>
-    <p>Gele Kaarten: {{info.geleKaarten}}</p>
-    <p>Rode Kaarten: {{info.rodeKaarten}}</p>
-    <p>Aantal Goalen: {{info.aantalGoalen}}</p>
-    <p>Aantal Assisten: {{info.aantalAssisten}}</p>
-  </div>
+    <tr>
+      <th>ID</th>
+      <th>Voornaam</th>
+      <th>Achternaam</th>
+      <th>Woonplaats</th>
+      <th>Email</th>
+      <th>Positie</th>
+      <th>Rugnummer</th>
+      <th>Gele Kaarten</th>
+      <th>Rode Kaarten</th>
+      <th>Aantal Goalen</th>
+      <th>Aantal Assisten</th>
+    </tr>
+    <tr *ngFor="let info of SpelersInfo">
+      <th>{{info.id}}</th>
+      <th>{{info.voornaam}}</th>
+      <th>{{info.achternaam}}</th>
+      <th>{{info.woonplaats}}</th>
+      <th>{{info.email}}</th>
+      <th>{{info.positie}}</th>
+      <th>{{info.rugnummer}}</th>
+      <th>{{info.geleKaarten}}</th>
+      <th>{{info.rodeKaarten}}</th>
+      <th>{{info.aantalGoalen}}</th>
+      <th>{{info.aantalAssisten}}</th>
+    </tr>
 </table>
+</div>
   <div class="search">
     <label>Typ hier welke voornaam je wil opzoeken:</label><br>
     <input type="text" placeholder="voornaam">
@@ -45,7 +60,6 @@
 
   <input type="submit" value="Sorteer speler" click="">
   <input type="submit" value="Filter speler" click="">
-</div>
 
 <div class="GetOnId">
   <div class="KiesVeld">

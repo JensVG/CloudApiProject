@@ -10,7 +10,7 @@ export class SpelerComponent implements OnInit {
   Idspelerget: string;
   Idspelerdelete: string;
   SpelerInfo: Speler;
-  SpelersInfo: Speler[];
+  SpelersInfo: Speler;
   SpelerUpdate: Speler[];
   SelectedId: number;
   NewVoornaam: string;
@@ -61,14 +61,18 @@ export class SpelerComponent implements OnInit {
     })
   }
 
+  GetAllSpelers(){
+    return this.speler.GetAllSpelers().subscribe(spelersinfo => {
+      this.SpelersInfo = spelersinfo;
+    })
+  }
+
   UpdateSpeler() {
     this.speler.UpdateSpeler(this.SelectedId, this.NewVoornaam,this.NewAchternaam,this.NewWoonplaats,this.NewEmail,this.NewPositie,this.NewRugnummer,this.NewGeleKaarten,this.NewRodeKaarten,this.NewAantalGoalen,this.NewAantalAssisten).subscribe(speler => this.SpelerUpdate.push(speler));
   }
 
   async ngOnInit() {
-      this.speler.GetAllSpelers().subscribe(SpelersInfo => {
-        this.SpelersInfo = SpelersInfo;
-      })
+         this.GetAllSpelers();
     }
 
 }

@@ -11,7 +11,7 @@ export class SpelersService {
   constructor(private http: HttpClient) { }
 
   GetAllSpelers() {
-    return this.http.get<Speler[]>(`https://localhost:44377/api/v1/Spelers`)
+    return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers`)
   }
   GetSpelerById(id){
     return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers/${id}`)
