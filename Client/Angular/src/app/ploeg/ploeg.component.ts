@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PloegenService } from '../ploegen/ploegen.service'
+import { SpelersService, Voetbal } from '../spelers/spelers.service'
 
 @Component({
   selector: 'app-ploeg',
@@ -7,38 +7,19 @@ import { PloegenService } from '../ploegen/ploegen.service'
   styleUrls: ['./ploeg.component.css']
 })
 export class PloegComponent implements OnInit {
-  IdPloeg: string = "3"
-  PloegInfo: Ploeg;
-  constructor(private ploeg: PloegenService) { }
+  VideosInfo: Voetbal;
+  title: string;
 
-  GetPloeg(IdPloeg: string) {
-    this.ploeg.GetPloegById(IdPloeg).subscribe((info) => {
-      this.PloegInfo = {
-        id: info.id,
-        ploegNaam: info.ploegNaam,
-        gemeente: info.gemeente,
-        website: info.website,
-        stamnummer: info.stamnummer,
-        gewonnen: info.gewonnen,
-        verloren: info.verloren,
-        gelijkspel: info.gelijkspel,
-        punten: info.punten
-      }
+  constructor(private speler: SpelersService) { }
+
+  GetAllVideos() {
+    return this.speler.GetThirdPartyAPI().subscribe(videosinfo => {
+      this.VideosInfo =  videosinfo;
     })
   }
-  ngOnInit() {
+
+  async ngOnInit() {
+    this.GetAllVideos();
   }
 
-}
-
-export interface Ploeg {
-  id: any;
-  ploegNaam: string;
-  gemeente: string;
-  website: string;
-  stamnummer: any;
-  gewonnen: any;
-  verloren: any;
-  gelijkspel: any;
-  punten: any;
 }

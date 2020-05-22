@@ -30,6 +30,36 @@
     </tr>
 </table>
 </div>
+
+<div class="GetOnId">
+  <strong>Kies hier het ID van de speler waar je meer informatie over wilt weten.</strong>
+  <div class="KiesVeld">
+    <select [(ngModel)]="Idspelerget">
+      <option *ngFor="let info of SpelersInfo" value="{{info.id}}">{{info.id}}</option>
+    </select>
+    <button (click)="SearchSpelerOnID(Idspelerget)">Bevestig</button>
+  </div>
+  <div *ngIf="SpelerInfo">
+    <p>ID: {{SpelerInfo.id}}</p>
+    <p>Naam: {{SpelerInfo.voornaam}}</p>
+    <p>Achternaam: {{SpelerInfo.achternaam}}</p>
+    <p>Woonplaats: {{SpelerInfo.woonplaats}}</p>
+    <p>Email: {{SpelerInfo.email}}</p>
+    <p>Positie: {{SpelerInfo.positie}}</p>
+    <p>Rugnummer: {{SpelerInfo.rugnummer}}</p>
+    <p>Gele Kaarten: {{SpelerInfo.geleKaarten}}</p>
+    <p>Rode Kaarten: {{SpelerInfo.rodeKaarten}}</p>
+    <p>Aantal Goalen: {{SpelerInfo.aantalGoalen}}</p>
+    <p>Aantal Assisten: {{SpelerInfo.aantalAssisten}}</p>
+  </div>
+</div>
+<div class="Delete">
+  <strong>Kies hier het ID van de speler die je wilt verwijderen.</strong>
+  <select [(ngModel)]="Idspelerdelete">
+    <option *ngFor="let info of SpelersInfo" value="{{info.id}}">{{info.id}}</option>
+  </select>
+  <button (click)="DeleteSpelerOnID(Idspelerdelete)">Bevestig</button>
+</div>
   <div class="search">
     <label>Typ hier welke voornaam je wil opzoeken:</label><br>
     <input type="text" placeholder="voornaam">
@@ -61,27 +91,6 @@
   <input type="submit" value="Sorteer speler" click="">
   <input type="submit" value="Filter speler" click="">
 
-<div class="GetOnId">
-  <div class="KiesVeld">
-    <select [(ngModel)]="Idspelerget">
-      <option value="1">1</option>
-    </select>
-    <button (click)="SearchSpelerOnID(Idspelerget)">Bevestig</button>
-  </div>
-
-  <div *ngIf="SpelerInfo">
-    <p>ID: {{SpelerInfo.id}}</p>
-    <p>Naam: {{SpelerInfo.voornaam}}</p>
-    <p>Woonplaats: {{SpelerInfo.woonplaats}}</p>
-    <p>Email: {{SpelerInfo.email}}</p>
-    <p>Positie: {{SpelerInfo.positie}}</p>
-    <p>Rugnummer: {{SpelerInfo.rugnummer}}</p>
-    <p>Gele Kaarten: {{SpelerInfo.geleKaarten}}</p>
-    <p>Rode Kaarten: {{SpelerInfo.rodeKaarten}}</p>
-    <p>Aantal Goalen: {{SpelerInfo.aantalGoalen}}</p>
-    <p>Aantal Assisten: {{SpelerInfo.aantalAssisten}}</p>
-  </div>
-</div>
 <div class="Update">
   <strong>Update hier een bestaande speler</strong>
   <form>
@@ -115,50 +124,42 @@
     <input type="radio" id="Aanvaller" name="positie" value="Aanvaller">
     <label for="Aanvaller">Aanvaller</label><br>
     <input type="submit" value="Maak speler"
-      click="UpdateSpeler(voornaam,achternaam,woonplaats,email,positie,rugnummer,geleKaarten,rodeKaarten,aantalGoalen,aantalAssisten)">
+      click="UpdateSpeler(id.value,voornaam.value,achternaam.value,woonplaats.value,email.value,positie.value,rugnummer.value,geleKaarten.value,rodeKaarten.value,aantalGoalen.value,aantalAssisten.value)">
   </form>
-</div>
-
-<div class="Delete">
-  <strong>Kies een speler die je wilt verwijderen</strong>
-  <select [(ngModel)]="Idspelerdelete">
-    <option value="1">1</option>
-  </select>
-  <button (click)="DeleteSpelerOnID(Idspelerdelete)">Bevestig</button>
 </div>
 
 <div class="Creer">
   <strong>Maak hier een nieuwe speler</strong>
   <form>
     <label>Voornaam:</label>
-    <input type="text" name="voornaam" value=""><br><br>
+    <input type="text" required name="voornaam" #voornaam><br><br>
     <label>Achternaam:</label>
-    <input type="text" name="achternaam" value=""><br><br>
+    <input type="text" required name="achternaam" #achternaam><br><br>
     <label>Woonplaats:</label>
-    <input type="text" name="woonplaats" value=""><br><br>
+    <input type="text" required name="woonplaats" #woonplaats><br><br>
     <label>Email:</label>
-    <input type="email" name="email" value=""><br><br>
+    <input type="email" required name="email" #email><br><br>
     <label>Rugnummer:</label>
-    <input type="number" min="1" max="99" name="rugnummer" value=""><br><br>
+    <input type="number" min="1" max="99"  required name="rugnummer" #rugnummer><br><br>
     <label>Aantal Gele Kaarten:</label>
-    <input type="number" min="0" name="geleKaarten" value=""><br><br>
+    <input type="number" min="0" required name="geleKaarten" #geleKaarten><br><br>
     <label>Aantal Rode Kaarten:</label>
-    <input type="number" min="0" name="rodeKaarten" value=""><br><br>
+    <input type="number" min="0" required name="rodeKaarten" #rodeKaarten><br><br>
     <label>Aantal Goalen:</label>
-    <input type="number" min="0" name="aantalGoalen" value=""><br><br>
+    <input type="number" min="0" required name="aantalGoalen" #aantalGoalen><br><br>
     <label>Aantal Assisten:</label>
-    <input type="number" min="0" name="aantalAssisten" value=""><br><br>
+    <input type="number" min="0" required name="aantalAssisten" #aantalAssisten><br><br>
     <label>Positie:</label><br>
-    <input type="radio" id="Keeper" name="positie" value="Keeper">
+    <input type="radio" name="positie" value="Keeper" #positie>
     <label for="Keeper">Keeper</label><br>
-    <input type="radio" id="Verdediger" name="positie" value="Verdediger">
+    <input type="radio" name="positie" value="Verdediger" #positie>
     <label for="Verdediger">Verdediger</label><br>
-    <input type="radio" id="Middenvelder" name="positie" value="Middenvelder">
+    <input type="radio" name="positie" value="Middenvelder" #positie>
     <label for="Middenvelder">Middenvelder</label><br>
-    <input type="radio" id="Aanvaller" name="positie" value="Aanvaller">
+    <input type="radio" name="positie" value="Aanvaller" #positie>
     <label for="Aanvaller">Aanvaller</label><br>
     <input type="submit" value="Maak speler"
-      click="UpdateSpeler(voornaam,achternaam,woonplaats,email,positie,rugnummer,geleKaarten,rodeKaarten,aantalGoalen,aantalAssisten)">
+      click="CreateSpeler(voornaam.value,achternaam.value,woonplaats.value,email.value,positie.value,rugnummer.value,geleKaarten.value,rodeKaarten.value,aantalGoalen.value,aantalAssisten.value)">
   </form>
 </div>
 </div>

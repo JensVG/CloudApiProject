@@ -2,4 +2,17 @@
 <div class="Info">
     <strong>Lijst van ploegen</strong>
 </div>
+<div>
+    <strong>De gekste voetbal matchen van een andere competitie</strong>
+<table>
+    <tr>
+      <th>Match</th>
+      <th>URL naar highlights</th>
+    </tr>
+    <tr *ngFor="let info of VideosInfo">
+      <th>{{info.title}}</th>
+      <th>{{info.url}}</th>
+    </tr>
+</table>
+</div>
 </div>
