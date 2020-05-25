@@ -11,7 +11,7 @@
     </tr>
     <tr *ngFor="let info of VideosInfo">
       <th>{{info.title}}</th>
-      <th>{{info.url}}</th>
+      <th><a href={{info.url}}>{{info.url}}</a></th>
     </tr>
 </table>
 </div>

@@ -11,6 +11,7 @@ namespace VoetbalAPI.Model
     {
         public int Id { get; set; }
         [Required]
+        [StringLength(30)]
         public string Voornaam { get; set; }
         [Required]
         public string Achternaam { get; set; }

@@ -18,6 +18,7 @@ namespace VoetbalAPI.Model
         [Required]
         public string Website { get; set; }
         [Required]
+        [MaxLength(5)]
         public int Stamnummer { get; set; }
         [Required]
         public int Gewonnen { get; set; }

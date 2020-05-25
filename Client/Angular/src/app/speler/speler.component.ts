@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpelersService, Speler } from '../spelers/spelers.service'
+import { ProjectService, Speler } from '../services/project.service'
 
 @Component({
   selector: 'app-speler',
@@ -8,9 +8,14 @@ import { SpelersService, Speler } from '../spelers/spelers.service'
 })
 export class SpelerComponent implements OnInit {
   Idspelerget: string;
+  Lengte: number;
+  Page: number;
   Idspelerdelete: string;
   SpelerInfo: Speler;
   SpelersInfo: Speler;
+  VoornaamSpelersInfo: Speler;
+  SorteerMethode: string;
+  SorteerOp: string;
   SpelerUpdate: Speler[];
   SelectedId: number;
   NewVoornaam: string;
@@ -25,7 +30,7 @@ export class SpelerComponent implements OnInit {
   NewAantalAssisten: number;
 
 
-  constructor(private speler: SpelersService) { }
+  constructor(private speler: ProjectService) { }
 
   SearchSpelerOnID(IdSpeler: string) {
     this.speler.GetSpelerById(IdSpeler).subscribe((info) => {
@@ -69,6 +74,19 @@ export class SpelerComponent implements OnInit {
     })
   }
 
+  GetAllSpelersWithName(voornaam: Speler) {
+    console.log(voornaam);
+    return this.speler.SearchOnSpelersVoornaam(voornaam).subscribe(spelersinfo => {
+      this.VoornaamSpelersInfo = spelersinfo;
+    })
+  }
+
+  WayToSort() {
+    this.speler.SortSpelers(this.SorteerOp, this.SorteerMethode).subscribe(spelersinfo => {
+      this.SpelersInfo = spelersinfo;
+    })
+  }
+
   CreateSpeler(voornaam, achternaam, woonplaats, email, positie, rugnummer, geleKaarten, rodeKaarten, aantalGoalen, aantalAssisten) {
     console.log(voornaam);
     console.log(achternaam);
@@ -100,6 +118,14 @@ export class SpelerComponent implements OnInit {
 
   UpdateSpeler() {
     this.speler.UpdateSpeler(this.SelectedId, this.NewVoornaam, this.NewAchternaam, this.NewWoonplaats, this.NewEmail, this.NewPositie, this.NewRugnummer, this.NewGeleKaarten, this.NewRodeKaarten, this.NewAantalGoalen, this.NewAantalAssisten).subscribe(speler => this.SpelerUpdate.push(speler));
+  }
+
+  GetPageSpelers(Page: number, Lengte: number) {
+    this.speler.GetSpelersPage(Page, Lengte).subscribe(SpelersInfo => {
+      this.SpelerInfo = SpelersInfo;
+      console.log(Lengte);
+      console.log("werkt");
+    })
   }
 
   async ngOnInit() {

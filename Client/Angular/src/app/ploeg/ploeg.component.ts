@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpelersService, Voetbal } from '../spelers/spelers.service'
+import { ProjectService, Voetbal } from '../services/project.service'
 
 @Component({
   selector: 'app-ploeg',
@@ -10,7 +10,7 @@ export class PloegComponent implements OnInit {
   VideosInfo: Voetbal;
   title: string;
 
-  constructor(private speler: SpelersService) { }
+  constructor(private speler: ProjectService) { }
 
   GetAllVideos() {
     return this.speler.GetThirdPartyAPI().subscribe(videosinfo => {
