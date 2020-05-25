@@ -1,18 +1,82 @@
 <div class="PloegenPage">
-<div class="Info">
-    <strong>Lijst van ploegen</strong>
-</div>
-<div>
+  <div class="InfoPloegen">
+    <strong>Lijst van alle ploegen</strong>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Ploegnaam</th>
+        <th>Gemeente</th>
+        <th>Website</th>
+        <th>Stamnummer</th>
+        <th>Gewonnen</th>
+        <th>Verloren</th>
+        <th>Gelijkspel</th>
+        <th>Punten</th>
+      </tr>
+      <tr *ngFor="let info of PloegenInfo">
+        <th>{{info.id}}</th>
+        <th>{{info.ploegNaam}}</th>
+        <th>{{info.gemeente}}</th>
+        <th><a href={{info.website}}>{{info.website}}</a></th>
+        <th>{{info.stamnummer}}</th>
+        <th>{{info.gewonnen}}</th>
+        <th>{{info.verloren}}</th>
+        <th>{{info.gelijkspel}}</th>
+        <th>{{info.punten}}</th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="rank">
+    <strong>Dit is het huidige klassement</strong>
+    <table>
+      <tr>
+        <th>Ploegnaam</th>
+        <th>Gewonnen</th>
+        <th>Gelijkspel</th>
+        <th>Verloren</th>
+        <th>Punten</th>
+      </tr>
+      <tr *ngFor="let info of PloegenInfo">
+        <th>{{info.ploegNaam}}</th>
+        <th>{{info.gewonnen}}</th>
+        <th>{{info.verloren}}</th>
+        <th>{{info.gelijkspel}}</th>
+        <th>{{info.punten}}</th>
+      </tr>
+    </table>
+  </div>
+  <div class="GetOnId">
+    <strong>Kies hier het ID van de ploeg waar je meer informatie over wilt weten.</strong>
+    <div class="KiesVeld">
+      <select [(ngModel)]="Idploegget">
+        <option *ngFor="let info of PloegenInfo" value="{{info.id}}">{{info.id}}</option>
+      </select>
+      <button (click)="SearchPloegOnID(Idploegget)">Bevestig</button>
+    </div>
+    <div *ngIf="PloegInfo">
+      <p>ID: {{PloegInfo.id}}</p>
+      <p>Ploegnaam: {{PloegInfo.ploegNaam}}</p>
+      <p>Gemeente: {{PloegInfo.gemeente}}</p>
+      <p>Website: <a href={{PloegInfo.website}}>{{PloegInfo.website}}</a></p>
+      <p>Stamnummer: {{PloegInfo.stamnummer}}</p>
+      <p>Gewonnen: {{PloegInfo.gewonnen}}</p>
+      <p>Verloren: {{PloegInfo.verloren}}</p>
+      <p>Gelijkspel: {{PloegInfo.gelijkspel}}</p>
+      <p>Punten: {{PloegInfo.punten}}</p>
+    </div>
+  </div>
+  <div class="ThirdPartyApi">
     <strong>De gekste voetbal matchen van een andere competitie</strong>
-<table>
-    <tr>
-      <th>Match</th>
-      <th>URL naar highlights</th>
-    </tr>
-    <tr *ngFor="let info of VideosInfo">
-      <th>{{info.title}}</th>
-      <th><a href={{info.url}}>{{info.url}}</a></th>
-    </tr>
-</table>
-</div>
+    <table>
+      <tr>
+        <th>Match</th>
+        <th>URL naar highlights</th>
+      </tr>
+      <tr *ngFor="let info of VideosInfo">
+        <th>{{info.title}}</th>
+        <th><a href={{info.url}}>{{info.url}}</a></th>
+      </tr>
+    </table>
+  </div>
 </div>

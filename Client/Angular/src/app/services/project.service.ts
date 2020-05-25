@@ -25,8 +25,8 @@ export class ProjectService {
   }
 
   //Get 1 Ploeg
-  GetPloegById(IdPloeg){
-    return this.http.get<Ploeg>(`https://localhost:44377/api/v1/Ploegen/${IdPloeg}`)
+  GetPloegById(id){
+    return this.http.get<Ploeg>(`https://localhost:44377/api/v1/Ploegen/${id}`)
   }
 
   //ThirdParty
