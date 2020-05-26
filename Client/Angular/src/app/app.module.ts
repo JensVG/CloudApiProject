@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 import { StartPaginaComponent } from './startpagina/startpagina.component';
 import { SpelerComponent } from './speler/speler.component';
 import { PloegComponent } from './ploeg/ploeg.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NavigatieComponent } from './navigatie/navigatie.component';
 
 export const config = {
   firebase: {
@@ -41,7 +41,7 @@ export const config = {
     StartPaginaComponent,
     SpelerComponent,
     PloegComponent,
-    UserProfileComponent,
+    NavigatieComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +55,7 @@ export const config = {
     RouterModule.forRoot([
       {
         path: 'login',
-        component: UserProfileComponent
+        component: NavigatieComponent
       },
       {
         path: 'start',
@@ -72,11 +72,11 @@ export const config = {
       {
         path: "",
         pathMatch: "full",
-        redirectTo: "start"
+        redirectTo: "login"
       },
       {
         path: "*",
-        redirectTo: "start"
+        redirectTo: "login"
       }],
       {
         useHash: true

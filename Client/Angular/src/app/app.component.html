@@ -1,14 +1,25 @@
-<p-panel>
-  <p-header>
-    <img [src]="img">
-    <div class="ui-toolbar-group-left">
-      <button pButton type="button" label="start" class="ui-button-secondary" [routerLink]="['/start']"
-        [routerLinkActive]="['ui-button-info']"></button>
-      <button pButton type="button" label="spelers" class="ui-button-secondary" [routerLink]="['/spelers']"
-        [routerLinkActive]="['ui-button-info']"></button>
-      <button pButton type="button" label="ploegen" class="ui-button-secondary" [routerLink]="['/ploegen']"
-        [routerLinkActive]="['ui-button-info']"></button>
+<div class="pagina">
+  <div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+  </div>
+
+  <!-- User NOT logged in -->
+  <ng-template #guest>
+    <h1>Jupiler Pro League</h1>
+    <p>Login om verder te geraken</p>
+
+    <button (click)="auth.googleSignin()">
+      <i class="fa fa-google"></i>Verbind met Google
+    </button>
+  </ng-template>
+
+
+  <!-- User logged in -->
+  <ng-template #authenticated>
+    <app-navigatie></app-navigatie>
+    <div *ngIf="auth.user$ | async as user">
+      <img [src]="user.photoURL">
+      <button class="logout" (click)="auth.signOut()">Log uit</button>
     </div>
-  </p-header>
-  <router-outlet></router-outlet>
-</p-panel>
+  </ng-template>
+</div>

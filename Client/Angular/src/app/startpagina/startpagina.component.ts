@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./startpagina.component.css']
 })
 export class StartPaginaComponent implements OnInit {
-  background : string = "../../../assets/images/jupiler.png"
   constructor() { }
 
   ngOnInit() {

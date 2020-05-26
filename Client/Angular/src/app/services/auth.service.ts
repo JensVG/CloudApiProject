@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { User } from './user.model';
 
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root' })
 export class AuthService {
-  user$: Observable<any>;
-  public accessToken:any ="";
+  user$: Observable<User>;
 
   constructor(
     private afAuth:AngularFireAuth,
@@ -22,7 +22,7 @@ export class AuthService {
       switchMap(user => {
           // Logged in
         if (user) {
-          return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           // Logged out
           return of(null);
@@ -31,23 +31,15 @@ export class AuthService {
     );
    }
 
-   async setToken(idToken){
-    this.accessToken = idToken;
-   }
-
    async googleSignin(){
      const provider = new auth.GoogleAuthProvider();
      const credential = await this.afAuth.signInWithPopup(provider);
-     this.accessToken = credential.user.getIdTokenResult().then(function(idToken){
-      localStorage.setItem('idToken', JSON.stringify(idToken));
-      return idToken;
-     });
      return this.updateUserData(credential.user);
    }
 
    private updateUserData(user) {
     // Sets user data to firestore on login
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data = { 
       uid: user.uid, 
@@ -55,6 +47,7 @@ export class AuthService {
       displayName: user.displayName, 
       photoURL: user.photoURL
     } 
+
     return userRef.set(data, { merge: true })
 
   }
