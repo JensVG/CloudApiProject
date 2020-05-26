@@ -32,11 +32,12 @@ get token(){
 }
   
   get IsHome() {
-    return this.router.isActive('/start', true)
+    return this.router.isActive('/login', true)
   }
 
   get Style() {
     switch (this.router.url) {
+      case '/start':
       case '/spelers':
       case '/ploegen':
         return "ui-button-danger"

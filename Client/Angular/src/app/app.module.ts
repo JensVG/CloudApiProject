@@ -20,6 +20,7 @@ import { AppComponent } from './app.component';
 import { StartPaginaComponent } from './startpagina/startpagina.component';
 import { SpelerComponent } from './speler/speler.component';
 import { PloegComponent } from './ploeg/ploeg.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 export const config = {
   firebase: {
@@ -40,6 +41,7 @@ export const config = {
     StartPaginaComponent,
     SpelerComponent,
     PloegComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,10 @@ export const config = {
     AngularFireAuthModule, 
     OAuthModule.forRoot(),
     RouterModule.forRoot([
+      {
+        path: 'login',
+        component: UserProfileComponent
+      },
       {
         path: 'start',
         component: StartPaginaComponent
