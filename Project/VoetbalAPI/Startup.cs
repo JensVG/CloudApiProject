@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace VoetbalAPI
 {
@@ -25,6 +26,15 @@ namespace VoetbalAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
+            /*
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.Authority = " ";
+                options.Audience = " ";
+
+            });
+            */
+
             services.AddDbContext<CompetitieContext>(
             options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
             )
@@ -36,6 +46,7 @@ namespace VoetbalAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,CompetitieContext competitieContext)
         {
+      
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -45,6 +56,8 @@ namespace VoetbalAPI
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
+
+            // app.UseAuthentication();
 
             app.UseCors(builder =>
             builder.AllowAnyOrigin()

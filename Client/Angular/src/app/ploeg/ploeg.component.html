@@ -70,10 +70,39 @@
   </div>
 
   <div class="Delete">
-    <strong>Kies hier het ID van de speler die je wilt verwijderen.</strong><br>
+    <strong>Kies hier het ID van de ploeg die je wilt verwijderen.</strong><br>
     <select [(ngModel)]="Idploegdelete">
-      <option *ngFor="let info of PloegInfo" value="{{info.id}}">{{info.id}}</option>
+      <option *ngFor="let info of PloegenInfo" value="{{info.id}}">{{info.id}}</option>
     </select>
     <button (click)="DeletePloegOnID(Idploegdelete)">Bevestig</button>
   </div>
+
+<div class="Update">
+  <strong>Update hier een bestaande ploeg</strong>
+    <p>Ploegnaam:</p>
+    <input type="text" name="ploegnaam" #ploegnaam>
+    <br><br>
+    <p>Gemeente:</p>
+    <input type="text" name="gemeente" #gemeente>
+    <br><br>
+    <p>Website:</p>
+    <input type="text" name="website" #website>
+    <br><br>
+    <p>Stamnummer:</p>
+    <input type="number" name="stamnummer" #stamnummer>
+    <br><br>
+    <p>Gewonnen:</p>
+    <input type="number" name="gewonnen" #gewonnen>
+    <br><br>
+    <p>Verloren:</p>
+    <input type="number" name="verloren" #verloren>
+    <br><br>
+    <p>Gelijkspel:</p>
+    <input type="number" name="gelijkspel" #gelijkspel>
+    <br><br>
+    <p>Punten:</p>
+    <input type="number" name="punten" #punten>
+    <br><br>
+    <button type="submit" value="Maak speler" click="CreatePloeg(ploegnaam.value,gemeente.value,website.value,stamnummer.value,gewonnen.value,verloren.value,gelijkspel.value,punten.value)">Maak Ploeg</button>
+</div>
 </div>

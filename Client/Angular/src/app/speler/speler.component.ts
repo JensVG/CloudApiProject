@@ -87,31 +87,15 @@ export class SpelerComponent implements OnInit {
     })
   }
 
-  CreateSpeler(voornaam, achternaam, woonplaats, email, positie, rugnummer, geleKaarten, rodeKaarten, aantalGoalen, aantalAssisten) {
-    console.log(voornaam);
-    console.log(achternaam);
-    console.log(woonplaats);
-    console.log(email);
-    console.log(rugnummer);
-    console.log(geleKaarten);
-    console.log(rodeKaarten);
-    console.log(aantalGoalen);
-    console.log(aantalAssisten);
-    console.log(positie);
-    console.log("werkt");
+  CreateSpeler(voornaam:string, achternaam:string, woonplaats:string, email:string,rugnummer:string,positie:string) {
     var input = {
       voornaam: voornaam,
       achternaam: achternaam,
       woonplaats: woonplaats,
       email: email,
-      positie: positie,
       rugnummer: rugnummer,
-      geleKaarten: geleKaarten,
-      rodeKaarten: rodeKaarten,
-      aantalGoalen: aantalGoalen,
-      aantalAssisten: aantalAssisten
-    }
-
+      positie: positie
+    };
     this.speler.CreateSpeler(input).subscribe();
   }
 

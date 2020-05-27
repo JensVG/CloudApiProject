@@ -105,9 +105,6 @@
     <button (click)="GetPageSpelers(Page,Lengte)">Bevestig</button>
   </div>
 
-  <input type="submit" value="Sorteer speler" click="">
-  <input type="submit" value="Filter speler" click="">
-
   <div class="Update">
     <strong>Update hier een bestaande speler</strong>
     <form>
@@ -158,14 +155,6 @@
       <input type="email" required name="email" #email><br><br>
       <label>Rugnummer:</label>
       <input type="number" min="1" max="99" required name="rugnummer" #rugnummer><br><br>
-      <label>Aantal Gele Kaarten:</label>
-      <input type="number" min="0" required name="geleKaarten" #geleKaarten><br><br>
-      <label>Aantal Rode Kaarten:</label>
-      <input type="number" min="0" required name="rodeKaarten" #rodeKaarten><br><br>
-      <label>Aantal Goalen:</label>
-      <input type="number" min="0" required name="aantalGoalen" #aantalGoalen><br><br>
-      <label>Aantal Assisten:</label>
-      <input type="number" min="0" required name="aantalAssisten" #aantalAssisten><br><br>
       <label>Positie:</label><br>
       <input type="radio" name="positie" value="Keeper" #positie>
       <label for="Keeper">Keeper</label><br>
@@ -176,7 +165,7 @@
       <input type="radio" name="positie" value="Aanvaller" #positie>
       <label for="Aanvaller">Aanvaller</label><br>
       <input type="submit" value="Maak speler"
-        click="CreateSpeler(voornaam.value,achternaam.value,woonplaats.value,email.value,positie.value,rugnummer.value,geleKaarten.value,rodeKaarten.value,aantalGoalen.value,aantalAssisten.value)">
+        click="CreateSpeler(voornaam.value,achternaam.value,woonplaats.value,email.value,rugnummer.value,positie.value)">
     </form>
   </div>
 </div>

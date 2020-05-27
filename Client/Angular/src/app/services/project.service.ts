@@ -41,7 +41,7 @@ export class ProjectService {
 
   //Delete Ploeg
   DeletePloegById(id) {
-    return this.http.delete<Ploeg>(`https://localhost:44377/api/v1/Spelers/${id}`)
+    return this.http.delete<Ploeg>(`https://localhost:44377/api/v1/Ploeg/${id}`)
   }
 
   //Search
@@ -59,13 +59,22 @@ export class ProjectService {
     return this.http.get<Speler>(`http://localhost:44377/api/v1/Spelers?page=${page}&length=${length}`);
   }
 
-  //Create
-  CreateSpeler(Speler) {
-    return this.http.post<Speler>(`https://localhost:44377/api/v1/Spelers`, Speler, {
+  //Create Speler
+  CreateSpeler(Speler: any) {
+    return this.http.post<Speler>(`https://localhost:44377/api/v1/Spelers`,Speler, {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
       }),
     });
+  }
+
+    //Create Ploeg
+  CreatePloeg(Ploeg: any) {
+    return this.http.post<any>(`https://localhost:44377/api/v1/Ploeg`,Ploeg, {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+      }),
+    })
   }
 
   //Update
