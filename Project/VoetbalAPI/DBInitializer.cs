@@ -39,21 +39,21 @@ namespace VoetbalAPI
             
             //Bekers
             Beker BekersVanRSCAnderlecht = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanRoyalAntwerpFC = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanCercleBrugge = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanClubBrugge = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanRoyalCharleroiSportingClub = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanKASEupen = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanKRCGenk = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanKAAGent = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanKVKortrijk = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanKVMechelen = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanRoyalExcelMoeskroen = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanKVOostende = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanSintTruidenseVV = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanStandardLuik = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanKVRSWaaslandSKBeveren = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
-            Beker BekersVanSVZulteWaregem = new Beker() { KampioenVanBelgië = 34, BekerVanBelgië = 9, SupercupVanBelgië = 13, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 5 };
+            Beker BekersVanRoyalAntwerpFC = new Beker() { KampioenVanBelgië = 0, BekerVanBelgië = 1, SupercupVanBelgië = 0, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanCercleBrugge = new Beker() { KampioenVanBelgië = 1, BekerVanBelgië = 2, SupercupVanBelgië = 0, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanClubBrugge = new Beker() { KampioenVanBelgië = 19, BekerVanBelgië = 6, SupercupVanBelgië = 10, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanRoyalCharleroiSportingClub = new Beker() { KampioenVanBelgië = 0, BekerVanBelgië = 1, SupercupVanBelgië = 0, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanKASEupen = new Beker() { KampioenVanBelgië = 0, BekerVanBelgië = 0, SupercupVanBelgië = 0, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanKRCGenk = new Beker() { KampioenVanBelgië = 7, BekerVanBelgië = 3, SupercupVanBelgië = 4, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanKAAGent = new Beker() { KampioenVanBelgië = 1, BekerVanBelgië = 2, SupercupVanBelgië = 2, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanKVKortrijk = new Beker() { KampioenVanBelgië = 0, BekerVanBelgië = 1, SupercupVanBelgië = 1, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanKVMechelen = new Beker() { KampioenVanBelgië = 2, BekerVanBelgië = 4, SupercupVanBelgië = 1, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 1 };
+            Beker BekersVanRoyalExcelMoeskroen = new Beker() { KampioenVanBelgië = 0, BekerVanBelgië = 0, SupercupVanBelgië = 0, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanKVOostende = new Beker() { KampioenVanBelgië = 0, BekerVanBelgië = 1, SupercupVanBelgië = 0, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanSintTruidenseVV = new Beker() { KampioenVanBelgië = 0, BekerVanBelgië = 0, SupercupVanBelgië = 0, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanStandardLuik = new Beker() { KampioenVanBelgië = 4, BekerVanBelgië = 3, SupercupVanBelgië = 5, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanKVRSWaaslandSKBeveren = new Beker() { KampioenVanBelgië = 2, BekerVanBelgië = 2, SupercupVanBelgië = 1, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
+            Beker BekersVanSVZulteWaregem = new Beker() { KampioenVanBelgië = 0, BekerVanBelgië = 1, SupercupVanBelgië = 0, ChampionsLeagueBeker = 0, EuropaLeagueBeker = 0 };
 
             context.Database.EnsureCreated();
 

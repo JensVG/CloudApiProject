@@ -11,8 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Http;
 
 namespace VoetbalAPI
 {
@@ -27,14 +25,6 @@ namespace VoetbalAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            /*
-          services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.Authority = "https:://acounts.google.com";
-                    options.Audience = "395258231179-ce056edpc7tp8evsqlnqp1kk589tuurd.apps.googleusercontent.com";
-                });
-                */
             services.AddDbContext<CompetitieContext>(
             options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
             )
@@ -66,8 +56,6 @@ namespace VoetbalAPI
             app.UseRouting();
 
             app.UseAuthorization();
-
-           // app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
