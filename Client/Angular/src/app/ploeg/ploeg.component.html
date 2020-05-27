@@ -27,6 +27,7 @@
     </table>
   </div>
 
+<!--
   <div class="rank">
     <strong>Dit is het huidige klassement</strong>
     <table>
@@ -46,6 +47,7 @@
       </tr>
     </table>
   </div>
+  -->
   <div class="GetOnId">
     <strong>Kies hier het ID van de ploeg waar je meer informatie over wilt weten.</strong>
     <div class="KiesVeld">
@@ -66,6 +68,15 @@
       <p>Punten: {{PloegInfo.punten}}</p>
     </div>
   </div>
+
+  <div class="Delete">
+    <strong>Kies hier het ID van de speler die je wilt verwijderen.</strong><br>
+    <select [(ngModel)]="Idploegdelete">
+      <option *ngFor="let info of PloegInfo" value="{{info.id}}">{{info.id}}</option>
+    </select>
+    <button (click)="DeletePloegOnID(Idploegdelete)">Bevestig</button>
+  </div>
+
   <div class="ThirdPartyApi">
     <strong>De gekste voetbal matchen van een andere competitie</strong>
     <table>
