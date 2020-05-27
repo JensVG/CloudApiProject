@@ -14,15 +14,15 @@
         <th>Punten</th>
       </tr>
       <tr *ngFor="let info of PloegenInfo">
-        <th>{{info.id}}</th>
-        <th>{{info.ploegNaam}}</th>
-        <th>{{info.gemeente}}</th>
-        <th><a href={{info.website}}>{{info.website}}</a></th>
-        <th>{{info.stamnummer}}</th>
-        <th>{{info.gewonnen}}</th>
-        <th>{{info.verloren}}</th>
-        <th>{{info.gelijkspel}}</th>
-        <th>{{info.punten}}</th>
+        <td>{{info.id}}</td>
+        <td>{{info.ploegNaam}}</td>
+        <td>{{info.gemeente}}</td>
+        <td><a href={{info.website}}>{{info.website}}</a></td>
+        <td>{{info.stamnummer}}</td>
+        <td>{{info.gewonnen}}</td>
+        <td>{{info.verloren}}</td>
+        <td>{{info.gelijkspel}}</td>
+        <td>{{info.punten}}</td>
       </tr>
     </table>
   </div>
@@ -75,19 +75,5 @@
       <option *ngFor="let info of PloegInfo" value="{{info.id}}">{{info.id}}</option>
     </select>
     <button (click)="DeletePloegOnID(Idploegdelete)">Bevestig</button>
-  </div>
-
-  <div class="ThirdPartyApi">
-    <strong>De gekste voetbal matchen van een andere competitie</strong>
-    <table>
-      <tr>
-        <th>Match</th>
-        <th>URL naar highlights</th>
-      </tr>
-      <tr *ngFor="let info of VideosInfo">
-        <th>{{info.title}}</th>
-        <th><a href={{info.url}}>{{info.url}}</a></th>
-      </tr>
-    </table>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService, Voetbal, Ploeg } from '../services/project.service'
+import { ProjectService, Ploeg } from '../services/project.service'
 
 @Component({
   selector: 'app-ploeg',
@@ -7,20 +7,12 @@ import { ProjectService, Voetbal, Ploeg } from '../services/project.service'
   styleUrls: ['./ploeg.component.css']
 })
 export class PloegComponent implements OnInit {
-  VideosInfo: Voetbal;
-  title: string;
   PloegenInfo: Ploeg;
   PloegInfo: Ploeg;
   Idploegget: string;
   Idploegdelete: string;
 
   constructor(private ploeg: ProjectService) { }
-
-  GetAllVideos() {
-    return this.ploeg.GetThirdPartyAPI().subscribe(videosinfo => {
-      this.VideosInfo = videosinfo;
-    })
-  }
 
   GetAllPloegen() {
     return this.ploeg.GetAllPloegen().subscribe(ploegeninfo => {
@@ -62,7 +54,6 @@ export class PloegComponent implements OnInit {
 
   async ngOnInit() {
     this.GetAllPloegen();
-    this.GetAllVideos();
   }
 
 }
