@@ -45,8 +45,9 @@ Hiermee kan men de waardes in de tabel gaan sorteren.
 Men kan sorteren op : voornaam,achternaam,woonplaats en rugnummer.
 De manier van sorteren kan op: voortwaarts of achterwaarts.
 
-# Create en Update
-Deze onderdelen zijn tot dit moment nog niet 100% functioneel.
+# Create
+Men kan een nieuwe speler aanmaken hiervoor moet men alle require veldjes invullen.
+Eens op de knop bevestigen is gedrukt zal de speler aangemaakt zijn en weertegeven zijn in de tabel.
 
 
 
@@ -59,5 +60,15 @@ Deze is weergegeven in een tabel
 Men kan kiezen uit alle ID's van de algemeene ploegen lijst.
 Wordt de keuze bevestigt dan krijgen we de informatie van deze ploeg te zien.
 
-# Delete , Create en Update
+# 1 bepaalde ploeg delete
+Men kan kiezen uit alle ID's van de algemeene ploegen lijst.
+Wordt de keuze bevestigt dan zal deze ploeg uit de tabel verwijdert worden.
+
+# Create
+Men kan een nieuwe ploeg aanmaken hiervoor moet men alle require veldjes invullen.
+Eens op de knop bevestigen is gedrukt zal de ploeg aangemaakt zijn en weertegeven zijn in de tabel.
+
+
+
+#  Update , google cloud en token
 Deze onderdelen zijn tot dit moment nog niet 100% functioneel.
