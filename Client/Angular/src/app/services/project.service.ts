@@ -51,12 +51,12 @@ export class ProjectService {
 
   //Sort
   SortSpelers(sorttype, dir) {
-    return this.http.get<Speler>(`http://localhost:44377/api/v1/Spelers?sort=${sorttype}&dir=${dir}`)
+    return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers?sort=${sorttype}&dir=${dir}`)
   }
 
   //Page 
-  GetSpelersPage(page: number, length: number = 100) {
-    return this.http.get<Speler>(`http://localhost:44377/api/v1/Spelers?page=${page}&length=${length}`);
+  GetSpelersPage(page: number) {
+    return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers?page=${page-1}`);
   }
 
   //Create Speler

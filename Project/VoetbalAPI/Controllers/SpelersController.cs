@@ -23,7 +23,7 @@ namespace VoetbalAPI.Controllers
         }
 
         [HttpGet]
-        public List<Speler> GetAllSpelers(string sort, string search, int? page, int length = 50, string dir = "asc")
+        public List<Speler> GetAllSpelers(string sort, string search, int? page, int length = 3, string dir = "asc")
         {
             var spelers = context.Spelers
                         .Include(d => d.Ploeg);

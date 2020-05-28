@@ -29,6 +29,9 @@
         <td>{{info.aantalAssisten}}</td>
       </tr>
     </table>
+    <button (click)="VorigePagina()" *ngIf="page != 1">Vorige</button>
+  <button [disabled]>{{page}}/{{maxPage}}</button>
+  <button (click)="VolgendePagina()" *ngIf="page != maxPage">Volgende</button>
   </div>
 
   <div class="GetOnId">
@@ -97,14 +100,6 @@
     <button (click)="WayToSort()">Bevestig</button>
   </div>
 
-  <div class="Page">
-    <label>Pas de lengte van de lijst aan:</label><br>
-    <input [(ngModel)]="Lengte" type="text"><br>
-    <label>Pas de pagina van de lijst aan:</label><br>
-    <input [(ngModel)]="Page" type="text"><br>
-    <button (click)="GetPageSpelers(Page,Lengte)">Bevestig</button>
-  </div>
-
   <div class="Update">
     <strong>Update hier een bestaande speler</strong>
     <form>
@@ -146,24 +141,33 @@
     <strong>Maak hier een nieuwe speler</strong>
     <form>
       <label>Voornaam:</label>
-      <input type="text" required name="voornaam" #voornaam><br><br>
+      <input type="text" required name="voornaam" #voornaam>
+      <br><br>
       <label>Achternaam:</label>
-      <input type="text" required name="achternaam" #achternaam><br><br>
+      <input type="text" required name="achternaam" #achternaam>
+      <br><br>
       <label>Woonplaats:</label>
-      <input type="text" required name="woonplaats" #woonplaats><br><br>
+      <input type="text" required name="woonplaats" #woonplaats>
+      <br><br>
       <label>Email:</label>
-      <input type="email" required name="email" #email><br><br>
+      <input type="email" required name="email" #email>
+      <br><br>
       <label>Rugnummer:</label>
       <input type="number" min="1" max="99" required name="rugnummer" #rugnummer><br><br>
-      <label>Positie:</label><br>
+      <label>Positie:</label>
+      <br>
       <input type="radio" name="positie" value="Keeper" #positie>
-      <label for="Keeper">Keeper</label><br>
+      <label for="Keeper">Keeper</label>
+      <br>
       <input type="radio" name="positie" value="Verdediger" #positie>
-      <label for="Verdediger">Verdediger</label><br>
+      <label for="Verdediger">Verdediger</label>
+      <br>
       <input type="radio" name="positie" value="Middenvelder" #positie>
-      <label for="Middenvelder">Middenvelder</label><br>
+      <label for="Middenvelder">Middenvelder</label>
+      <br>
       <input type="radio" name="positie" value="Aanvaller" #positie>
-      <label for="Aanvaller">Aanvaller</label><br>
+      <label for="Aanvaller">Aanvaller</label>
+      <br>
       <input type="submit" value="Maak speler"
         click="CreateSpeler(voornaam.value,achternaam.value,woonplaats.value,email.value,rugnummer.value,positie.value)">
     </form>

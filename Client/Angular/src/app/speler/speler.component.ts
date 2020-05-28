@@ -8,8 +8,8 @@ import { ProjectService, Speler } from '../services/project.service'
 })
 export class SpelerComponent implements OnInit {
   Idspelerget: string;
-  Lengte: number;
-  Page: number;
+  page: number = 1;
+  maxPage: number;
   Idspelerdelete: string;
   SpelerInfo: Speler;
   SpelersInfo: Speler;
@@ -104,12 +104,21 @@ export class SpelerComponent implements OnInit {
     this.speler.UpdateSpeler(this.SelectedId, this.NewVoornaam, this.NewAchternaam, this.NewWoonplaats, this.NewEmail, this.NewPositie, this.NewRugnummer, this.NewGeleKaarten, this.NewRodeKaarten, this.NewAantalGoalen, this.NewAantalAssisten).subscribe(speler => this.SpelerUpdate.push(speler));
   }
 
-  GetPageSpelers(Page: number, Lengte: number) {
-    this.speler.GetSpelersPage(Page, Lengte).subscribe(SpelersInfo => {
-      this.SpelerInfo = SpelersInfo;
-      console.log(Lengte);
+  GetPageSpelers() {
+    this.speler.GetSpelersPage(this.page).subscribe(SpelersInfo => {
+      this.SpelersInfo = SpelersInfo;
+      console.log(SpelersInfo)
       console.log("werkt");
     })
+  }
+
+  VolgendePagina(){
+    this.page++;
+    this.GetPageSpelers();
+  }
+  VorigePagina(){
+    this.page--;
+    this.GetPageSpelers();
   }
 
   async ngOnInit() {
