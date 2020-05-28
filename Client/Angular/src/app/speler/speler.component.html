@@ -30,8 +30,24 @@
       </tr>
     </table>
     <button (click)="VorigePagina()" *ngIf="page != 1">Vorige</button>
-  <button [disabled]>{{page}}/{{maxPage}}</button>
-  <button (click)="VolgendePagina()" *ngIf="page != maxPage">Volgende</button>
+    <button [disabled]>{{page}}/{{maxPage}}</button>
+    <button (click)="VolgendePagina()" *ngIf="page != maxPage">Volgende</button>
+  </div>
+
+  <div class="sort">
+    <strong>Kies hier op wat je wilt sorteeren</strong><br>
+    <select [(ngModel)]="SorteerOp">
+      <option value="voornaam">voornaam</option>
+      <option value="achternaam">achternaam</option>
+      <option value="woonplaats">woonplaats</option>
+      <option value="rugnummer">rugnummer</option>
+    </select><br>
+    <strong>Kies hier hoe je wilt sorteeren</strong><br>
+    <select [(ngModel)]="SorteerMethode">
+      <option value="asc">voorwaarts</option>
+      <option value="desc">achterwaarts</option>
+    </select><br>
+    <button (click)="WayToSort()">Bevestig</button>
   </div>
 
   <div class="GetOnId">
@@ -84,92 +100,73 @@
     </div>
   </div>
 
-  <div class="sort">
-    <strong>Kies hier op wat je wilt sorteeren</strong><br>
-    <select [(ngModel)]="SorteerOp">
-      <option value="voornaam">voornaam</option>
-      <option value="achternaam">achternaam</option>
-      <option value="woonplaats">woonplaats</option>
-      <option value="rugnummer">rugnummer</option>
-    </select><br>
-    <strong>Kies hier hoe je wilt sorteeren</strong><br>
-    <select [(ngModel)]="SorteerMethode">
-      <option value="asc">voorwaarts</option>
-      <option value="desc">achterwaarts</option>
-    </select><br>
-    <button (click)="WayToSort()">Bevestig</button>
-  </div>
-
   <div class="Update">
     <strong>Update hier een bestaande speler</strong>
-    <form>
-      <label>IDSpeler:</label>
-      <input type="text" name="id" value=""><br><br>
-      <label>Voornaam:</label>
-      <input type="text" name="voornaam" value=""><br><br>
-      <label>Achternaam:</label>
-      <input type="text" name="achternaam" value=""><br><br>
-      <label>Woonplaats:</label>
-      <input type="text" name="woonplaats" value=""><br><br>
-      <label>Email:</label>
-      <input type="email" name="email" value=""><br><br>
-      <label>Rugnummer:</label>
-      <input type="number" min="1" max="99" name="rugnummer" value=""><br><br>
-      <label>Aantal Gele Kaarten:</label>
-      <input type="number" min="0" name="geleKaarten" value=""><br><br>
-      <label>Aantal Rode Kaarten:</label>
-      <input type="number" min="0" name="rodeKaarten" value=""><br><br>
-      <label>Aantal Assisten:</label>
-      <input type="number" min="0" name="aantalAssisten" value=""><br><br>
-      <label>Aantal Gele Kaarten:</label>
-      <input type="number" min="0" name="aantalGoalen" value=""><br><br>
-      <label>Positie:</label><br>
-      <input type="radio" id="Keeper" name="positie" value="Keeper">
-      <label for="Keeper">Keeper</label><br>
-      <input type="radio" id="Verdediger" name="positie" value="Verdediger">
-      <label for="Verdediger">Verdediger</label><br>
-      <input type="radio" id="Middenvelder" name="positie" value="Middenvelder">
-      <label for="Middenvelder">Middenvelder</label><br>
-      <input type="radio" id="Aanvaller" name="positie" value="Aanvaller">
-      <label for="Aanvaller">Aanvaller</label><br>
-      <input type="submit" value="Maak speler"
-        click="UpdateSpeler(id.value,voornaam.value,achternaam.value,woonplaats.value,email.value,positie.value,rugnummer.value,geleKaarten.value,rodeKaarten.value,aantalGoalen.value,aantalAssisten.value)">
-    </form>
+    <p>IDSpeler:</p>
+    <input type="text" [(ngModel)]="IDUpdateSpeler">
+    <br><br>
+    <p>Voornaam:</p>
+    <input type="text" [(ngModel)]="VoornaamUpdateSpeler">
+    <br><br>
+    <p>Achternaam:</p>
+    <input type="text" [(ngModel)]="AchternaamUpdateSpeler">
+    <br><br>
+    <p>Woonplaats:</p>
+    <input type="text" [(ngModel)]="WoonplaatsUpdateSpeler">
+    <br><br>
+    <p>Email:</p>
+    <input type="email" [(ngModel)]="EmailUpdateSpeler">
+    <br><br>
+    <p>Rugnummer:</p>
+    <input type="number" min="1" max="99" [(ngModel)]="RugnummerUpdateSpeler">
+    <br><br>
+    <p>Aantal Gele Kaarten:</p>
+    <input type="number" min="0" [(ngModel)]="GeleKaartenUpdateSpeler">
+    <br><br>
+    <p>Aantal Rode Kaarten:</p>
+    <input type="number" min="0" [(ngModel)]="RodeKaartenUpdateSpeler">
+    <br><br>
+    <p>Aantal Assisten:</p>
+    <input type="number" min="0" [(ngModel)]="AantalAssistenUpdateSpeler">
+    <br><br>
+    <p>Aantal Goalen:</p>
+    <input type="number" min="0" [(ngModel)]="AantalGoalenUpdateSpeler">
+    <br><br>
+    <p>Positie:</p>
+    <select [(ngModel)]="PositieUpdateSpeler">
+      <option value="Keeper">Keeper</option>
+      <option value="Verdediger">Verdediger</option>
+      <option value="Middenvelder">Middenvelder</option>
+      <option value="Aanvaller">Aanvaller</option>
+    </select>
+    <br><br>
+    <button (click)="UpdateSpeler()">Update speler</button>
   </div>
 
   <div class="Creer">
     <strong>Maak hier een nieuwe speler</strong>
-    <form>
-      <label>Voornaam:</label>
-      <input type="text" required name="voornaam" #voornaam>
-      <br><br>
-      <label>Achternaam:</label>
-      <input type="text" required name="achternaam" #achternaam>
-      <br><br>
-      <label>Woonplaats:</label>
-      <input type="text" required name="woonplaats" #woonplaats>
-      <br><br>
-      <label>Email:</label>
-      <input type="email" required name="email" #email>
-      <br><br>
-      <label>Rugnummer:</label>
-      <input type="number" min="1" max="99" required name="rugnummer" #rugnummer><br><br>
-      <label>Positie:</label>
-      <br>
-      <input type="radio" name="positie" value="Keeper" #positie>
-      <label for="Keeper">Keeper</label>
-      <br>
-      <input type="radio" name="positie" value="Verdediger" #positie>
-      <label for="Verdediger">Verdediger</label>
-      <br>
-      <input type="radio" name="positie" value="Middenvelder" #positie>
-      <label for="Middenvelder">Middenvelder</label>
-      <br>
-      <input type="radio" name="positie" value="Aanvaller" #positie>
-      <label for="Aanvaller">Aanvaller</label>
-      <br>
-      <input type="submit" value="Maak speler"
-        click="CreateSpeler(voornaam.value,achternaam.value,woonplaats.value,email.value,rugnummer.value,positie.value)">
-    </form>
+    <br><br>
+    <p>Voornaam:</p>
+    <input type="text" [(ngModel)]="VoornaamNewSpeler">
+    <br><br>
+    <p>Achternaam:</p>
+    <input type="text" [(ngModel)]="AchternaamNewSpeler">
+    <br><br>
+    <p>Woonplaats:</p>
+    <input type="text" [(ngModel)]="WoonplaatsNewSpeler">
+    <br><br>
+    <p>Email:</p>
+    <input type="email" [(ngModel)]="EmailNewSpeler">
+    <br><br>
+    <p>Rugnummer:</p>
+    <input type="number" min="1" max="99" [(ngModel)]="RugnummerNewSpeler"><br><br>
+    <p>Positie:</p>
+    <select [(ngModel)]="PositieNewSpeler">
+      <option value="Keeper">Keeper</option>
+      <option value="Verdediger">Verdediger</option>
+      <option value="Middenvelder">Middenvelder</option>
+      <option value="Aanvaller">Aanvaller</option>
+    </select><br><br>
+    <button (click)="CreateSpeler()">Maak Speler</button>
   </div>
 </div>

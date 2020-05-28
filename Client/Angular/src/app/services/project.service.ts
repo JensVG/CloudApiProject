@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ProjectService {
 
   constructor(private http: HttpClient) { }
- //Get all Spelers
+  //Get all Spelers
   GetAllSpelers() {
     return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers`)
   }
@@ -25,7 +25,7 @@ export class ProjectService {
   }
 
   //Get 1 Ploeg
-  GetPloegById(id){
+  GetPloegById(id) {
     return this.http.get<Ploeg>(`https://localhost:44377/api/v1/Ploegen/${id}`)
   }
 
@@ -44,55 +44,55 @@ export class ProjectService {
     return this.http.delete<Ploeg>(`https://localhost:44377/api/v1/Ploeg/${id}`)
   }
 
-  //Search
+  //Search Speler(s)
   SearchOnSpelersVoornaam(voornaam) {
     return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers?search=${voornaam}`);
   }
 
-  //Sort
+  //Sort Spelers
   SortSpelers(sorttype: string, dir: string) {
     return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers?sort=${sorttype}&dir=${dir}`)
   }
 
-  //Page 
+  //Page Spelers Tabel
   GetSpelersPage(page: number) {
-    return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers?page=${page-1}`);
+    return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers?page=${page - 1}`);
   }
 
   //Create Speler
   CreateSpeler(Speler: any) {
-    return this.http.post<Speler>(`https://localhost:44377/api/v1/Spelers`,Speler, {
+    return this.http.post<Speler>(`https://localhost:44377/api/v1/Spelers`, Speler, {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
       }),
     });
   }
 
-    //Create Ploeg
+  //Create Ploeg
   CreatePloeg(Ploeg: any) {
-    return this.http.post<any>(`https://localhost:44377/api/v1/Ploeg`,Ploeg, {
+    return this.http.post<any>(`https://localhost:44377/api/v1/Ploeg`, Ploeg, {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
       }),
     })
   }
 
-  //Update
-  UpdateSpeler(id, voornaam, achternaam, woonplaats, email, positie, rugnummer, geleKaarten, rodeKaarten, aantalGoalen, aantalAssisten): Observable<Speler> {
-    var putJson = {
-      id: id,
-      voornaam: voornaam,
-      achternaam: achternaam,
-      woonplaats: woonplaats,
-      email: email,
-      positie: positie,
-      rugnummer: rugnummer,
-      geleKaarten: geleKaarten,
-      rodeKaarten: rodeKaarten,
-      aantalGoalen: aantalGoalen,
-      aantalAssisten: aantalAssisten
+  //Update Speler
+  UpdateSpeler(Speler: any) {
+    var input = {
+      id: Speler.id,
+      voornaam: Speler.voornaam,
+      achternaam: Speler.achternaam,
+      woonplaats: Speler.woonplaats,
+      email: Speler.email,
+      positie: Speler.positie,
+      rugnummer: Speler.rugnummer,
+      geleKaarten: Speler.geleKaarten,
+      rodeKaarten: Speler.rodeKaarten,
+      aantalGoalen: Speler.aantalGoalen,
+      aantalAssisten: Speler.aantalAssisten
     }
-    return this.http.put<Speler>(`https://localhost:44377/api/v1/Spelers/${id}`, putJson, {
+    return this.http.put<Speler>(`https://localhost:44377/api/v1/Spelers`, input, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
@@ -100,6 +100,7 @@ export class ProjectService {
     );
   }
 }
+
 
 export interface Speler {
   id: any;

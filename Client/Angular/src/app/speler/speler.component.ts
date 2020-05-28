@@ -9,26 +9,34 @@ import { ProjectService, Speler } from '../services/project.service'
 export class SpelerComponent implements OnInit {
   Idspelerget: string;
   page: number = 1;
-  maxPage: number;
+  maxPage: number = 3;
   Idspelerdelete: string;
   SpelerInfo: Speler;
   SpelersInfo: Speler;
   VoornaamSpelersInfo: Speler;
   SorteerMethode: string;
   SorteerOp: string;
-  SpelerUpdate: Speler[];
+  SpelerUpdate: Speler;
   SelectedId: number;
-  NewVoornaam: string;
-  NewAchternaam: string;
-  NewWoonplaats: string;
-  NewEmail: string;
-  NewPositie: string;
-  NewRugnummer: number;
-  NewGeleKaarten: number;
-  NewRodeKaarten: number;
-  NewAantalGoalen: number;
-  NewAantalAssisten: number;
-
+  //Create
+  VoornaamNewSpeler: string;
+  AchternaamNewSpeler: string;
+  WoonplaatsNewSpeler: string;
+  EmailNewSpeler: string;
+  RugnummerNewSpeler: number;
+  PositieNewSpeler: string;
+  //Update
+  IDUpdateSpeler: string;
+  VoornaamUpdateSpeler: string;
+  AchternaamUpdateSpeler: string;
+  WoonplaatsUpdateSpeler: string;
+  EmailUpdateSpeler: string;
+  RugnummerUpdateSpeler: number;
+  PositieUpdateSpeler: string;
+  GeleKaartenUpdateSpeler: number;
+  RodeKaartenUpdateSpeler: number;
+  AantalAssistenUpdateSpeler: number;
+  AantalGoalenUpdateSpeler: number;
 
   constructor(private speler: ProjectService) { }
 
@@ -87,21 +95,34 @@ export class SpelerComponent implements OnInit {
     })
   }
 
-  CreateSpeler(voornaam:string, achternaam:string, woonplaats:string, email:string,rugnummer:string,positie:string) {
+  CreateSpeler() {
     var input = {
-      voornaam: voornaam,
-      achternaam: achternaam,
-      woonplaats: woonplaats,
-      email: email,
-      rugnummer: rugnummer,
-      positie: positie
+      voornaam: this.VoornaamNewSpeler,
+      achternaam: this.AchternaamNewSpeler,
+      woonplaats: this.WoonplaatsNewSpeler,
+      email: this.EmailNewSpeler,
+      rugnummer: this.RugnummerNewSpeler,
+      positie: this.PositieNewSpeler
     };
     this.speler.CreateSpeler(input).subscribe();
   }
 
 
   UpdateSpeler() {
-    this.speler.UpdateSpeler(this.SelectedId, this.NewVoornaam, this.NewAchternaam, this.NewWoonplaats, this.NewEmail, this.NewPositie, this.NewRugnummer, this.NewGeleKaarten, this.NewRodeKaarten, this.NewAantalGoalen, this.NewAantalAssisten).subscribe(speler => this.SpelerUpdate.push(speler));
+    var input = {
+      id: this.IDUpdateSpeler,
+      voornaam: this.VoornaamUpdateSpeler,
+      achternaam: this.AchternaamUpdateSpeler,
+      woonplaats: this.WoonplaatsUpdateSpeler,
+      email: this.EmailUpdateSpeler,
+      positie: this.PositieUpdateSpeler,
+      geleKaarten: this.GeleKaartenUpdateSpeler,
+      rodeKaarten: this.RodeKaartenUpdateSpeler,
+      aantalGoalen: this.AantalGoalenUpdateSpeler,
+      aantalAssisten: this.AantalAssistenUpdateSpeler
+
+    }
+    this.speler.UpdateSpeler(input).subscribe();
   }
 
   GetPageSpelers() {
@@ -114,6 +135,7 @@ export class SpelerComponent implements OnInit {
     this.page++;
     this.GetPageSpelers();
   }
+
   VorigePagina(){
     this.page--;
     this.GetPageSpelers();
