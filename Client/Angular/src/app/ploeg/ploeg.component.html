@@ -58,8 +58,11 @@
     <button (click)="DeletePloegOnID(Idploegdelete)">Bevestig</button>
   </div>
 
-<div class="Update">
-  <strong>Update hier een bestaande ploeg</strong>
+  <div class="Update">
+    <strong>Update hier een bestaande ploeg</strong>
+    <p>IDploeg:</p>
+    <input type="text" name="id" #id>
+    <br><br>
     <p>Ploegnaam:</p>
     <input type="text" name="ploegnaam" #ploegnaam>
     <br><br>
@@ -84,26 +87,26 @@
     <p>Punten:</p>
     <input type="number" name="punten" #punten>
     <br><br>
-    <button click="CreatePloeg()">Maak Ploeg</button>
-</div>
+    <button click="CreatePloeg()">Update Ploeg</button>
+  </div>
 
-<div class="Creer">
-  <strong>Maak hier een nieuwe ploeg</strong>
-  <br><br>
-  <p>Ploegnaam:</p>
-  <input type="text" [(ngModel)]="PloegnaamNewPloeg">
-  <br><br>
-  <p>Gemeente:</p>
-  <input type="text" [(ngModel)]="GemeenteNewPloeg">
-  <br><br>
-  <p>Website:</p>
-  <input type="text" [(ngModel)]="WebsiteNewPloeg">
-  <br><br>
-  <p>Stamnummer:</p>
-  <input type="number" min="1" max="99999" [(ngModel)]="StamnummerNewPloeg">
-  <br><br>
-  <span *ngIf="validationcreate == true">Vul zeker alle gegevraagde gegevens in</span>
-  <br><br>
-  <button (click)="CreatePloeg()">Maak Ploeg</button>
-</div>
+  <div class="Creer">
+    <strong>Maak hier een nieuwe ploeg</strong>
+    <br><br>
+    <p>Ploegnaam:</p>
+    <input type="text" [(ngModel)]="PloegnaamNewPloeg">
+    <br><br>
+    <p>Gemeente:</p>
+    <input type="text" [(ngModel)]="GemeenteNewPloeg">
+    <br><br>
+    <p>Website:</p>
+    <input type="text" [(ngModel)]="WebsiteNewPloeg">
+    <br><br>
+    <p>Stamnummer:</p>
+    <input type="number" min="1" max="99999" [(ngModel)]="StamnummerNewPloeg">
+    <br><br>
+    <span *ngIf="validationcreate == true">Vul zeker alle gegevraagde gegevens in</span>
+    <br><br>
+    <button (click)="CreatePloeg()">Maak Ploeg</button>
+  </div>
 </div>
