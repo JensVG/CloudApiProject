@@ -8,16 +8,16 @@ Eens je inlogt met je google account zal dit account verschijnen in de user lijs
 
 
 
-# StartPagina
-Op de startpagina kan men het gebruik van de thirdpartyapi.
+# Info over de StartPagina
+Op de startpagina is er gebruik gemaakt van de thirdpartyapi.
 Hierop zal je een tabel krijgen van de leukste wedstrijden van andere competities/toernooien.
-In deze tabel zal je 2 ploegen kunnen zien wie tegen elkaar spelen met een link erbij die je naar highlights en de verdere info over deze wedstrijd stuurt.
+In deze tabel zal je de 2 ploegen kunnen zien wie tegen elkaar spelen met een link erbij die je naar highlights en de verdere info over deze wedstrijd stuurt.
 De keuze van deze ThirdPartyApi is omdat ik niks van een belgische voetbal API en om toch maar in het thema van het voetbal te blijven heb ik dus gekozen voor deze.
-# Gebruikte ThirdPartyAPI: https://www.scorebat.com/video-api/v1/ .
+Gebruikte ThirdPartyAPI: https://www.scorebat.com/video-api/v1/ .
 
 
 
-# Spelerspagina
+# Info over de Spelerspagina
 Op de spelerspagina zou je volgende functionaliteiten moeten kunnen hebben.
 
 # Alle Spelers
@@ -35,7 +35,17 @@ Wordt de keuze bevestigt dan wordt de speler verwijdert uit de API en algemeene 
 Men kan in een input veldje een voornaam intypen.
 Als deze voornaam gekent is dan zal je over deze speler(s) meer info krijgen.
 
-# Create , Update , Paging en Sorting 
+# Paging
+Men via 2 knoppen (Vorige en Volgende) de tabel naar de vorige of volgende tabelpagina toestand brengen.
+De knop "vorige" zal verdwijnen als men op de laagste pagina zit.
+De knop "volgende" zal verdwijnen als men op de hoogste pagina zit.
+
+# Sorting 
+Hiermee kan men de waardes in de tabel gaan sorteren.
+Men kan sorteren op : voornaam,achternaam,woonplaats en rugnummer.
+De manier van sorteren kan op: voortwaarts of achterwaarts.
+
+# Create en Update
 Deze onderdelen zijn tot dit moment nog niet 100% functioneel.
 
 
