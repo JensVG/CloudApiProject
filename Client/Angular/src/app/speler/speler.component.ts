@@ -25,6 +25,7 @@ export class SpelerComponent implements OnInit {
   EmailNewSpeler: string;
   RugnummerNewSpeler: number;
   PositieNewSpeler: string;
+  validationcreate: boolean = false;
   //Update
   IDUpdateSpeler: string;
   VoornaamUpdateSpeler: string;
@@ -96,6 +97,11 @@ export class SpelerComponent implements OnInit {
   }
 
   CreateSpeler() {
+    if(this.VoornaamNewSpeler == null || this.AchternaamNewSpeler == null || this.WoonplaatsNewSpeler == null || this.EmailNewSpeler == null || this.RugnummerNewSpeler == null || this.PositieNewSpeler == null){
+      this.validationcreate = true;
+    }
+    else{
+      this.validationcreate = false;
     var input = {
       voornaam: this.VoornaamNewSpeler,
       achternaam: this.AchternaamNewSpeler,
@@ -105,6 +111,7 @@ export class SpelerComponent implements OnInit {
       positie: this.PositieNewSpeler
     };
     this.speler.CreateSpeler(input).subscribe();
+  }
   }
 
 

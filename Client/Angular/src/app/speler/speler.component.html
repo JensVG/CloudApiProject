@@ -167,6 +167,8 @@
       <option value="Middenvelder">Middenvelder</option>
       <option value="Aanvaller">Aanvaller</option>
     </select><br><br>
+    <span *ngIf="validationcreate == true">Vul zeker alle gegevraagde gegevens in</span>
+    <br><br>
     <button (click)="CreateSpeler()">Maak Speler</button>
   </div>
 </div>
