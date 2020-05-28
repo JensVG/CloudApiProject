@@ -53,7 +53,7 @@ namespace VoetbalAPI.Controllers
                         else if (dir == "desc")
                             query = query.OrderByDescending(d => d.Achternaam);
                         break;
-                    case "woontplaats":
+                    case "woonplaats":
                         if (dir == "asc")
                             query = query.OrderBy(d => d.Woonplaats);
                         else if (dir == "desc")
