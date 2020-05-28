@@ -20,6 +20,7 @@ export class SpelerComponent implements OnInit {
   SelectedId: number;
   validationdeleteid: boolean = false;
   validationgetid: boolean = false;
+  validationsort: boolean = false;
   //Create
   VoornaamNewSpeler: string;
   AchternaamNewSpeler: string;
@@ -105,9 +106,16 @@ this.validationgetid = true;
   }
 
   WayToSort() {
+    if(this.SorteerOp == null || this.SorteerMethode == null){
+      this.validationsort = true;
+    }
+    else{
+      this.validationsort = false;
     this.speler.SortSpelers(this.SorteerOp, this.SorteerMethode).subscribe(spelersinfo => {
       this.SpelersInfo = spelersinfo;
     })
+    
+  }
   }
 
   CreateSpeler() {

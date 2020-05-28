@@ -53,12 +53,12 @@ export class PloegComponent implements OnInit {
   }
 
   DeletePloegOnID(IdPloeg: string) {
+    if(IdPloeg == null){
+      this.validationdelete = true;
+    }
+    else{
+      this.validationdelete = false;
     this.ploeg.DeletePloegById(IdPloeg).subscribe((info) => {
-      if(IdPloeg == null){
-        this.validationgetid = true;
-      }
-      else{
-        this.validationgetid = false;
       this.PloegInfo = {
         id: info.id,
         ploegNaam: info.ploegNaam,
@@ -70,8 +70,8 @@ export class PloegComponent implements OnInit {
         gelijkspel: info.gelijkspel,
         punten: info.punten
       };
-    }
     })
+  }
   }
 
   CreatePloeg() {

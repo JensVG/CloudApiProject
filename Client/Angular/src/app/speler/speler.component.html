@@ -36,6 +36,7 @@
 
   <div class="sort">
     <strong>Kies hier op wat je wilt sorteeren</strong><br>
+    <span *ngIf="validationsort == true">Vul zeker alle gegevraagde gegevens in</span><br>
     <select [(ngModel)]="SorteerOp">
       <option value="voornaam">voornaam</option>
       <option value="achternaam">achternaam</option>
