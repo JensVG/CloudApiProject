@@ -107,8 +107,6 @@ export class SpelerComponent implements OnInit {
   GetPageSpelers() {
     this.speler.GetSpelersPage(this.page).subscribe(SpelersInfo => {
       this.SpelersInfo = SpelersInfo;
-      console.log(SpelersInfo)
-      console.log("werkt");
     })
   }
 

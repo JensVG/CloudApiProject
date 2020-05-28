@@ -50,7 +50,7 @@ export class ProjectService {
   }
 
   //Sort
-  SortSpelers(sorttype, dir) {
+  SortSpelers(sorttype: string, dir: string) {
     return this.http.get<Speler>(`https://localhost:44377/api/v1/Spelers?sort=${sorttype}&dir=${dir}`)
   }
 
@@ -115,7 +115,7 @@ export interface Speler {
   aantalAssisten: any;
 }
 
-/*
+
 export interface SpelerPloeg {
   id: any;
   voornaam: string;
@@ -130,7 +130,7 @@ export interface SpelerPloeg {
   aantalAssisten: any;
   Ploeg: Ploeg[];
 }
-*/
+
 
 export interface Ploeg {
   id: any;
