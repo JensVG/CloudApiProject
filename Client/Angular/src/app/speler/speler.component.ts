@@ -18,6 +18,8 @@ export class SpelerComponent implements OnInit {
   SorteerOp: string;
   SpelerUpdate: Speler;
   SelectedId: number;
+  validationdeleteid: boolean = false;
+  validationgetid: boolean = false;
   //Create
   VoornaamNewSpeler: string;
   AchternaamNewSpeler: string;
@@ -42,6 +44,11 @@ export class SpelerComponent implements OnInit {
   constructor(private speler: ProjectService) { }
 
   SearchSpelerOnID(IdSpeler: string) {
+    if(IdSpeler == null){
+this.validationgetid = true;
+    }
+    else{
+      this.validationgetid = false;
     this.speler.GetSpelerById(IdSpeler).subscribe((info) => {
       this.SpelerInfo = {
         id: info.id,
@@ -58,8 +65,14 @@ export class SpelerComponent implements OnInit {
       };
     })
   }
+  }
 
   DeleteSpelerOnID(IdSpeler: string) {
+    if(IdSpeler == null){
+      this.validationdeleteid = true;
+    }
+    else{
+      this.validationdeleteid = false;
     this.speler.DeleteSpelerById(IdSpeler).subscribe((info) => {
       this.SpelerInfo = {
         id: info.id,
@@ -75,6 +88,7 @@ export class SpelerComponent implements OnInit {
         aantalAssisten: info.aantalAssisten,
       };
     })
+  }
   }
 
   GetAllSpelers() {

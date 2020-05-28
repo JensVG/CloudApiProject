@@ -9,13 +9,18 @@ import { ProjectService, Ploeg } from '../services/project.service'
 export class PloegComponent implements OnInit {
   PloegenInfo: Ploeg;
   PloegInfo: Ploeg;
+  //get on id
   Idploegget: string;
+  validationgetid: boolean = false;
+  //delete on id
   Idploegdelete: string;
+  validationdelete: boolean = false;
   //Create
   PloegnaamNewPloeg: string;
   GemeenteNewPloeg: string;
   WebsiteNewPloeg: string;
   StamnummerNewPloeg: number;
+  validationcreate: boolean = false;
 
   constructor(private ploeg: ProjectService) { }
 
@@ -26,6 +31,11 @@ export class PloegComponent implements OnInit {
   }
 
   SearchPloegOnID(IdPloeg: string) {
+    if(IdPloeg == null){
+      this.validationgetid = true;
+    }
+    else{
+      this.validationgetid = false;  
     this.ploeg.GetPloegById(IdPloeg).subscribe((info) => {
       this.PloegInfo = {
         id: info.id,
@@ -40,9 +50,15 @@ export class PloegComponent implements OnInit {
       };
     })
   }
+  }
 
   DeletePloegOnID(IdPloeg: string) {
     this.ploeg.DeletePloegById(IdPloeg).subscribe((info) => {
+      if(IdPloeg == null){
+        this.validationgetid = true;
+      }
+      else{
+        this.validationgetid = false;
       this.PloegInfo = {
         id: info.id,
         ploegNaam: info.ploegNaam,
@@ -54,10 +70,16 @@ export class PloegComponent implements OnInit {
         gelijkspel: info.gelijkspel,
         punten: info.punten
       };
+    }
     })
   }
 
   CreatePloeg() {
+    if(this.PloegnaamNewPloeg == null || this.GemeenteNewPloeg == null || this.WebsiteNewPloeg == null || this.StamnummerNewPloeg == null){
+      this.validationcreate = true;
+    }
+    else{
+    this.validationcreate = false;
     var input = {
       ploegNaam: this.PloegnaamNewPloeg,
       gemeente: this.GemeenteNewPloeg,
@@ -66,6 +88,8 @@ export class PloegComponent implements OnInit {
     };
 
     this.ploeg.CreatePloeg(input).subscribe();
+          
+  }
   }
 
   async ngOnInit() {

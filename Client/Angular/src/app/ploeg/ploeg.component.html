@@ -27,29 +27,9 @@
     </table>
   </div>
 
-<!--
-  <div class="rank">
-    <strong>Dit is het huidige klassement</strong>
-    <table>
-      <tr>
-        <th>Ploegnaam</th>
-        <th>Gewonnen</th>
-        <th>Gelijkspel</th>
-        <th>Verloren</th>
-        <th>Punten</th>
-      </tr>
-      <tr *ngFor="let info of PloegenInfo">
-        <th>{{info.ploegNaam}}</th>
-        <th>{{info.gewonnen}}</th>
-        <th>{{info.verloren}}</th>
-        <th>{{info.gelijkspel}}</th>
-        <th>{{info.punten}}</th>
-      </tr>
-    </table>
-  </div>
-  -->
   <div class="GetOnId">
-    <strong>Kies hier het ID van de ploeg waar je meer informatie over wilt weten.</strong>
+    <strong>Kies hier het ID van de ploeg waar je meer informatie over wilt weten.</strong><br>
+    <span *ngIf="validationgetid == true">Vul zeker alle gegevraagde gegevens in</span><br>
     <div class="KiesVeld">
       <select [(ngModel)]="Idploegget">
         <option *ngFor="let info of PloegenInfo" value="{{info.id}}">{{info.id}}</option>
@@ -71,6 +51,7 @@
 
   <div class="Delete">
     <strong>Kies hier het ID van de ploeg die je wilt verwijderen.</strong><br>
+    <span *ngIf="validationdelete == true">Vul zeker alle gegevraagde gegevens in</span><br>
     <select [(ngModel)]="Idploegdelete">
       <option *ngFor="let info of PloegenInfo" value="{{info.id}}">{{info.id}}</option>
     </select>
@@ -120,6 +101,8 @@
   <br><br>
   <p>Stamnummer:</p>
   <input type="number" min="1" max="99999" [(ngModel)]="StamnummerNewPloeg">
+  <br><br>
+  <span *ngIf="validationcreate == true">Vul zeker alle gegevraagde gegevens in</span>
   <br><br>
   <button (click)="CreatePloeg()">Maak Ploeg</button>
 </div>

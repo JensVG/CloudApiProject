@@ -51,7 +51,8 @@
   </div>
 
   <div class="GetOnId">
-    <strong>Kies hier het ID van de speler waar je meer informatie over wilt weten.</strong>
+    <strong>Kies hier het ID van de speler waar je meer informatie over wilt weten.</strong><br>
+    <span *ngIf="validationgetid == true">Vul zeker alle gegevraagde gegevens in</span><br>
     <div class="KiesVeld">
       <select [(ngModel)]="Idspelerget">
         <option *ngFor="let info of SpelersInfo" value="{{info.id}}">{{info.id}}</option>
@@ -75,6 +76,7 @@
 
   <div class="Delete">
     <strong>Kies hier het ID van de speler die je wilt verwijderen.</strong><br>
+    <span *ngIf="validationdeleteid == true">Vul zeker alle gegevraagde gegevens in</span><br>
     <select [(ngModel)]="Idspelerdelete">
       <option *ngFor="let info of SpelersInfo" value="{{info.id}}">{{info.id}}</option>
     </select>
