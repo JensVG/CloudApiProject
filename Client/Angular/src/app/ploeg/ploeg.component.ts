@@ -11,6 +11,11 @@ export class PloegComponent implements OnInit {
   PloegInfo: Ploeg;
   Idploegget: string;
   Idploegdelete: string;
+  //Create
+  PloegnaamNewPloeg: string;
+  GemeenteNewPloeg: string;
+  WebsiteNewPloeg: string;
+  StamnummerNewPloeg: number;
 
   constructor(private ploeg: ProjectService) { }
 
@@ -52,16 +57,12 @@ export class PloegComponent implements OnInit {
     })
   }
 
-  CreatePloeg(ploegnaam:string,gemeente:string,website:string,stamnummer:number,gewonnen:number,verloren:number,gelijkspel:number,punten:number) {
+  CreatePloeg() {
     var input = {
-      ploegNaam: ploegnaam,
-      gemeente: gemeente,
-      website: website,
-      stamnummer: stamnummer,
-      gewonnen: gewonnen,
-      verloren: verloren,
-      gelijkspel: gelijkspel,
-      punten: punten
+      ploegNaam: this.PloegnaamNewPloeg,
+      gemeente: this.GemeenteNewPloeg,
+      website: this.WebsiteNewPloeg,
+      stamnummer: this.StamnummerNewPloeg
     };
 
     this.ploeg.CreatePloeg(input).subscribe();

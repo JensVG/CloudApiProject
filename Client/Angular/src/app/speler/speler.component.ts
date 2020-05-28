@@ -115,11 +115,12 @@ export class SpelerComponent implements OnInit {
       achternaam: this.AchternaamUpdateSpeler,
       woonplaats: this.WoonplaatsUpdateSpeler,
       email: this.EmailUpdateSpeler,
+      rugnummer: this.RugnummerUpdateSpeler,
       positie: this.PositieUpdateSpeler,
       geleKaarten: this.GeleKaartenUpdateSpeler,
       rodeKaarten: this.RodeKaartenUpdateSpeler,
       aantalGoalen: this.AantalGoalenUpdateSpeler,
-      aantalAssisten: this.AantalAssistenUpdateSpeler
+      aantalAssisten: this.AantalAssistenUpdateSpeler 
 
     }
     this.speler.UpdateSpeler(input).subscribe();

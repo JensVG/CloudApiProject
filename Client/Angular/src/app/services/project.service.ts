@@ -41,7 +41,7 @@ export class ProjectService {
 
   //Delete Ploeg
   DeletePloegById(id) {
-    return this.http.delete<Ploeg>(`https://localhost:44377/api/v1/Ploeg/${id}`)
+    return this.http.delete<Ploeg>(`https://localhost:44377/api/v1/Ploegen/${id}`)
   }
 
   //Search Speler(s)
@@ -70,11 +70,11 @@ export class ProjectService {
 
   //Create Ploeg
   CreatePloeg(Ploeg: any) {
-    return this.http.post<any>(`https://localhost:44377/api/v1/Ploeg`, Ploeg, {
+    return this.http.post<Ploeg>(`https://localhost:44377/api/v1/Ploegen`, Ploeg, {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
       }),
-    })
+    });
   }
 
   //Update Speler

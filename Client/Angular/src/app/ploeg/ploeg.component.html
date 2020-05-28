@@ -105,4 +105,22 @@
     <br><br>
     <button click="CreatePloeg()">Maak Ploeg</button>
 </div>
+
+<div class="Creer">
+  <strong>Maak hier een nieuwe ploeg</strong>
+  <br><br>
+  <p>Ploegnaam:</p>
+  <input type="text" [(ngModel)]="PloegnaamNewPloeg">
+  <br><br>
+  <p>Gemeente:</p>
+  <input type="text" [(ngModel)]="GemeenteNewPloeg">
+  <br><br>
+  <p>Website:</p>
+  <input type="text" [(ngModel)]="WebsiteNewPloeg">
+  <br><br>
+  <p>Stamnummer:</p>
+  <input type="number" min="1" max="99999" [(ngModel)]="StamnummerNewPloeg">
+  <br><br>
+  <button (click)="CreatePloeg()">Maak Ploeg</button>
+</div>
 </div>
